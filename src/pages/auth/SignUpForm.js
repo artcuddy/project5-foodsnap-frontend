@@ -104,7 +104,7 @@ const SignUpForm = () => {
             ))}
 
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Dark}`}
               type="submit"
             >
               Sign up
@@ -129,7 +129,7 @@ const SignUpForm = () => {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"}
+          src={"https://res.cloudinary.com/artcuddy/image/upload/v1671286122/SignUpLogo_j5vouz.webp"}
         />
       </Col>
     </Row>
@@ -137,3 +137,4 @@ const SignUpForm = () => {
 };
 
 export default SignUpForm;
+
