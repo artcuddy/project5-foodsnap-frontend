@@ -4,10 +4,6 @@
     min-height: 100vh;
 }
 
-svg {
-    margin-right: 5px;
-}
-
 .Main {
     padding-top: 81px;
 }
@@ -19,14 +15,8 @@ svg {
     border: 1px solid #dadadf;
 }
 
-.SignUpImage {
-    object-fit: contain;
-    height: 85%;
-    width: 85%;
-}
-
-.SignInImage {
-    object-fit: contain;
+.FillerImage {
+    object-fit: cover;
     height: 100%;
     width: 100%;
 }
