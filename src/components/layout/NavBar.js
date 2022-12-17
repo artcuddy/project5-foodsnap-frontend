@@ -7,7 +7,7 @@ import logo from '../../assets/logo.webp';
 import HomeSharpIcon from '@mui/icons-material/HomeSharp';
 import LoginSharpIcon from '@mui/icons-material/LoginSharp';
 import PersonAddAltSharpIcon from '@mui/icons-material/PersonAddAltSharp';
-import styles from './NavBar.module.css';
+import styles from "../../styles/NavBar.module.css";
 
 const NavBar = () => {
   return (

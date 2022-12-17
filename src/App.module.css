@@ -5,11 +5,30 @@
 }
 
 svg {
-    margin-right: 5px!important;
+    margin-right: 5px;
 }
 
 .Main {
     padding-top: 81px;
+}
+
+.Content {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #dadadf;
+}
+
+.FillerImage {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.Image {
+    max-height: 40vh;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 * {
@@ -17,7 +36,7 @@ svg {
 }
 
 a {
-    color: #000000;
+    color: #555555;
     transition: color ease-in-out 0.3s;
 }
 
@@ -25,9 +44,13 @@ a:hover {
     text-decoration: none;
 }
 
-a:hover  {
-    color: rgb(6, 98, 20);
+a:hover i {
+    color: #2142b2;
     transition: color ease-in-out 0.3s;
+}
+
+input[type="file"] {
+    display: none;
 }
 
 i {
@@ -40,5 +63,27 @@ i {
 i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: rgb(6, 98, 20);
+    color: #2142b2;
+}
+
+figure {
+    text-align: center;
+    display: inline-block;
+}
+
+/* scrollbar */
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
