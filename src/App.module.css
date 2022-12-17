@@ -19,7 +19,13 @@ svg {
     border: 1px solid #dadadf;
 }
 
-.FillerImage {
+.SignUpImage {
+    object-fit: contain;
+    height: 85%;
+    width: 85%;
+}
+
+.SignInImage {
     object-fit: contain;
     height: 100%;
     width: 100%;
