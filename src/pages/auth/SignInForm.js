@@ -59,6 +59,7 @@ function SignInForm() {
               <Form.Label className="d-none">Username</Form.Label>
               <Form.Control
                 type="text"
+                autoComplete="username"
                 placeholder="Username"
                 name="username"
                 className={styles.Input}
@@ -76,6 +77,7 @@ function SignInForm() {
               <Form.Label className="d-none">Password</Form.Label>
               <Form.Control
                 type="password"
+                autoComplete="current-password"
                 placeholder="Password"
                 name="password"
                 className={styles.Input}

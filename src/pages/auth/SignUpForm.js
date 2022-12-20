@@ -58,6 +58,7 @@ const SignUpForm = () => {
               <Form.Label className="d-none">username</Form.Label>
               <Form.Control
                 className={styles.Input}
+                autoComplete="username"
                 type="text"
                 placeholder="Username"
                 name="username"
@@ -75,6 +76,7 @@ const SignUpForm = () => {
               <Form.Label className="d-none">Password</Form.Label>
               <Form.Control
                 className={styles.Input}
+                autoComplete="new-password"
                 type="password"
                 placeholder="Password"
                 name="password1"
@@ -92,6 +94,7 @@ const SignUpForm = () => {
               <Form.Label className="d-none">Confirm password</Form.Label>
               <Form.Control
                 className={styles.Input}
+                autoComplete="new-password"
                 type="password"
                 placeholder="Confirm password"
                 name="password2"
