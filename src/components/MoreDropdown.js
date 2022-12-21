@@ -2,18 +2,26 @@ import React from "react";
 import { useHistory } from "react-router";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import IconButton from '@mui/material/IconButton';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import EditIcon from '@mui/icons-material/Edit';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import PasswordIcon from '@mui/icons-material/Password';
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
-  <i
-    className="fa-ellipsis-vertical"
-    ref={ref}
-    onClick={(e) => {
-      e.preventDefault();
-      onClick(e);
-    }}
-  />
+          <IconButton 
+            aria-label="settings"
+            ref={ref}
+            onClick={(e) => {
+            e.preventDefault();
+            onClick(e);
+          }}>
+            <MoreVertIcon />
+          </IconButton>
+        
 ));
 
 
@@ -31,14 +39,14 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
           onClick={handleEdit}
           aria-label="edit"
         >
-          <i className="fas fa-edit" />
+          <EditIcon />
         </Dropdown.Item>
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleDelete}
           aria-label="delete"
         >
-          <i className="fas fa-trash-alt" />
+          <DeleteForeverIcon />
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
@@ -55,21 +63,19 @@ export function ProfileEditDropdown({ id }) {
           onClick={() => history.push(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
         >
-          <i className="fas fa-edit" /> edit profile
+          <EditIcon /> edit profile
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/username`)}
           aria-label="edit-username"
         >
-          <i className="far fa-id-card" />
-          change username
+          <ManageAccountsIcon /> change username
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
           aria-label="edit-password"
         >
-          <i className="fas fa-key" />
-          change password
+          <PasswordIcon /> change password
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

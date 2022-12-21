@@ -11,14 +11,18 @@ h5 {
     margin: 0 0;
 }
 
+.PostBar {
+    display: inline-flex;
+}
+
 .Heart {
-    color: #f85032;
+    margin-right: 1em;
 }
 
 .Heart:hover {
-    color: #2142b2;
+    color: #767779;
 }
 
-.HeartOutline:hover {
-    color: #f85032;
+.Comments:hover {
+    color: #767779;
 }

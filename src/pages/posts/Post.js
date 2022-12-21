@@ -1,11 +1,16 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Card, Media} from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import Tooltip from '@mui/material/Tooltip';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { red } from '@mui/material/colors';
+import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 
 
 const Post = (props) => {
@@ -100,34 +105,32 @@ const Post = (props) => {
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.PostBar}>
+          <div className={styles.Heart}>
           {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't like your own post!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
+          <Tooltip title="You can't like your own post!" placement="top" arrow>
+              <FavoriteBorderOutlinedIcon />
+          </Tooltip> 
           ) : like_id ? (
             <span onClick={handleUnlike}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
+              <FavoriteIcon  sx={{ color: red[500] }}/>
             </span>
           ) : currentUser ? (
             <span onClick={handleLike}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
+              <FavoriteBorderOutlinedIcon />
             </span>
           ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to like posts!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
+          <Tooltip title="Please login to like posts!" placement="top" arrow>
+              <FavoriteIcon />
+          </Tooltip> 
           )}
           {likes_count}
+          </div>
+          <div className={styles.Comments}>
           <Link to={`/posts/${id}`}>
-            <i className="far fa-comments" />
+            <ChatBubbleOutlineOutlinedIcon className={styles.Comments}/>
           </Link>
           {comments_count}
+          </div>
         </div>
       </Card.Body>
     </Card>
