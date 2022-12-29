@@ -9,8 +9,10 @@ import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 import Comment from "../comments/Comment";
+import Recipes from "../recipes/Recipes";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
+import RecipeCreateForm from "../recipes/RecipesCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -25,16 +27,19 @@ function PostPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
+  const [recipes, setRecipes] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: post }, { data: comments }] = await Promise.all([
+        const [{ data: post }, { data: comments }, { data: recipes }] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
           axiosReq.get(`/comments/?post=${id}`),
+          axiosReq.get(`/recipes/?post=${id}`),
         ]);
         setPost({ results: [post] });
         setComments(comments);
+        setRecipes(recipes);
       } catch (err) {
         // console.log(err);
       }
@@ -48,6 +53,41 @@ function PostPage() {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
         <Post {...post.results[0]} setPosts={setPost} postPage />
+
+        <Container className={appStyles.Content}>
+          {currentUser ? (
+            <RecipeCreateForm
+              profile_id={currentUser.profile_id}
+              post={id}
+              setPost={setPost}
+              setRecipes={setRecipes}
+            />
+          ) : recipes.results.length ? (
+            "Recipes"
+          ) : null}
+          {recipes.results.length ? (
+            <InfiniteScroll
+              children={recipes.results.map((recipe) => (
+                <Recipes
+                  key={recipe.id}
+                  {...recipe}
+                  setPost={setPost}
+                  setRecipes={setRecipes}
+                />
+              ))}
+              dataLength={recipes.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!recipes.next}
+              next={() => fetchMoreData(recipes, setRecipes)}
+            />
+          ) : currentUser ? (
+            <span>No recipes yet, be the first to add one!</span>
+          ) : (
+            <span>No recipes... yet</span>
+          )}
+        </Container>
+
+        
         <Container className={appStyles.Content}>
           {currentUser ? (
             <CommentCreateForm
