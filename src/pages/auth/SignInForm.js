@@ -14,6 +14,7 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import logo from "../../assets/logo-white.webp";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
@@ -93,10 +94,10 @@ function SignInForm() {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Black}`}
               type="submit"
             >
-              Sign in
+              SIGN IN
             </Button>
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
@@ -113,11 +114,11 @@ function SignInForm() {
       </Col>
       <Col
         md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
+        className={`my-auto  d-md-block p-2 ${styles.SignInCol}`}
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero.jpg"}
+          src={logo}
         />
       </Col>
     </Row>

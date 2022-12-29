@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import logo from "../../assets/logo-white.webp";
 
 import {
   Form,
@@ -109,10 +110,10 @@ const SignUpForm = () => {
             ))}
 
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Black}`}
               type="submit"
             >
-              Sign up
+              SIGN UP
             </Button>
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
@@ -130,11 +131,11 @@ const SignUpForm = () => {
       </Col>
       <Col
         md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
+        className={`my-auto d-md-block p-2 ${styles.SignUpCol}`}
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"}
+          src={logo}
         />
       </Col>
     </Row>
