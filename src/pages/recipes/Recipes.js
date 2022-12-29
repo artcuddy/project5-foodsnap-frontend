@@ -10,7 +10,6 @@ const Recipes = (props) => {
   const {
     profile_id,
     owner,
-    updated_at,
     ingredients,
     method,
     id,
@@ -47,9 +46,7 @@ return (
       <hr />
       <Media>
         <Media.Body className="align-self-center ml-2">
-          <span className={styles.Owner}>{owner}</span>
-          <span className={styles.Date}>{updated_at}</span>
-          {showEditForm ? (
+          {is_owner && showEditForm ? (
             <RecipeEditForm
       id={id}
       profile_id={profile_id}
@@ -60,8 +57,14 @@ return (
     />
           ) : (
             <>
-            <p>{ingredients}</p>
-            <p>{method}</p>
+            <div>
+                <h4>Ingredients</h4>
+                <p className={styles.CssFix}>{ingredients}</p>
+            </div>
+            <div>
+                <h4>Method</h4>
+                <p className={styles.CssFix}>{method}</p>
+            </div>
             </>
           )}
         </Media.Body>

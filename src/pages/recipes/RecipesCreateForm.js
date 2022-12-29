@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
 
 import styles from "../../styles/RecipesCreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 
+
 function RecipeCreateForm(props) {
-  const { post, setPost, setRecipes, profile_id } = props;
+
+  const { post, setPost, setRecipes } = props;
   const [ingredients, setIngredients] = useState("");
   const [method, setMethod] = useState("");
 
@@ -40,6 +41,7 @@ function RecipeCreateForm(props) {
         ],
       }));
       setIngredients("");
+      setMethod("");
     } catch (err) {
       // console.log(err);
     }
@@ -48,11 +50,11 @@ function RecipeCreateForm(props) {
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
-        <InputGroup>
           <Form.Control
             className={styles.Form}
             placeholder="Ingredients"
             as="textarea"
+            name="ingredients"
             value={ingredients}
             onChange={handleIngredients}
             rows={2}
@@ -60,12 +62,12 @@ function RecipeCreateForm(props) {
                <Form.Control
             className={styles.Form}
             placeholder="Method"
+            name="method"
             as="textarea"
             value={method}
             onChange={handleMethod}
             rows={2}
           />
-        </InputGroup>
       </Form.Group>
       <button
         className={`${styles.Button} btn d-block ml-auto`}

@@ -21,10 +21,11 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 
 function PostPage() {
-  const { id } = useParams();
+  const { id, owner } = useParams();
   const [post, setPost] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
+  const is_owner = currentUser?.username === owner;
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
   const [recipes, setRecipes] = useState({ results: [] });
@@ -63,27 +64,21 @@ function PostPage() {
               setRecipes={setRecipes}
             />
           ) : recipes.results.length ? (
-            "Recipes"
+            <h5>Check out the recipe here!</h5>
           ) : null}
           {recipes.results.length ? (
-            <InfiniteScroll
-              children={recipes.results.map((recipe) => (
+              recipes.results.map((recipe) => (
                 <Recipes
                   key={recipe.id}
                   {...recipe}
                   setPost={setPost}
                   setRecipes={setRecipes}
                 />
-              ))}
-              dataLength={recipes.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!recipes.next}
-              next={() => fetchMoreData(recipes, setRecipes)}
-            />
+              ))
           ) : currentUser ? (
-            <span>No recipes yet, be the first to add one!</span>
+            <span>No recipe has been added yet!</span>
           ) : (
-            <span>No recipes... yet</span>
+            <span>Sorry no recipe has been added yet!</span>
           )}
         </Container>
 
@@ -98,7 +93,7 @@ function PostPage() {
               setComments={setComments}
             />
           ) : comments.results.length ? (
-            "Comments"
+            <h5>Comments</h5>
           ) : null}
           {comments.results.length ? (
             <InfiniteScroll
