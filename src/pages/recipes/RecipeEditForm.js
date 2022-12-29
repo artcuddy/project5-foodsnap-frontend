@@ -9,6 +9,9 @@ import styles from "../../styles/RecipesCreateEditForm.module.css";
 function RecipeEditForm(props) {
   const { id, setShowEditForm, setRecipes } = props;
 
+  // const [recipeData, setRecipeData] = useState(ingredients, method);
+  // const { ingredients, method } = recipeData;
+
   const [ingredients, setIngredients] = useState("");
   const [method, setMethod] = useState("");
 
@@ -20,16 +23,23 @@ function RecipeEditForm(props) {
     setMethod(event.target.value);
   };
 
+  // const handleChange = (event) => {
+  //   setRecipeData({
+  //     ...recipeData,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axiosRes.put(`/recipes/${id}/`, {
-        ingredients,
-        method,
+        ingredients: ingredients.trim(),
+        method: method.trim(),
       });
-      setRecipes((prevRecipe) => ({
-        ...prevRecipe,
-        results: prevRecipe.results.map((recipe) => {
+      setRecipes((prevRecipes) => ({
+        ...prevRecipes,
+        results: prevRecipes.results.map((recipe) => {
           return recipe.id === id
             ? {
                 ...recipe,

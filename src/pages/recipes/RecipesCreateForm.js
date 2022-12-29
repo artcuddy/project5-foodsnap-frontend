@@ -57,7 +57,7 @@ function RecipeCreateForm(props) {
             name="ingredients"
             value={ingredients}
             onChange={handleIngredients}
-            rows={2}
+            rows={4}
           />
                <Form.Control
             className={styles.Form}
@@ -66,7 +66,7 @@ function RecipeCreateForm(props) {
             as="textarea"
             value={method}
             onChange={handleMethod}
-            rows={2}
+            rows={4}
           />
       </Form.Group>
       <button
