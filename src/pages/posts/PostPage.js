@@ -21,11 +21,10 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 
 function PostPage() {
-  const { id, owner } = useParams();
+  const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
   const [recipes, setRecipes] = useState({ results: [] });
