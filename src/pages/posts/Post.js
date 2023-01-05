@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media} from "react-bootstrap";
@@ -11,7 +11,11 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { red } from '@mui/material/colors';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
-
+import RestaurantMenuOutlinedIcon from '@mui/icons-material/RestaurantMenuOutlined';
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import RecipeCreateForm from "../recipes/RecipesCreateForm";
+import Recipes from "../recipes/Recipes";
+import { axiosReq } from "../../api/axiosDefaults";
 
 const Post = (props) => {
   const {
@@ -33,6 +37,9 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  const [recipes, setRecipes] = useState({ results: [] });
+  const [recipeOpen, setRecipeOpen] = useState(false);
+  const [post, setPost] = useState({ results: [] });
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -78,6 +85,23 @@ const Post = (props) => {
       // console.log(err);
     }
   };
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const [{ data: post }, { data: recipes }] = await Promise.all([
+          axiosReq.get(`/posts/${id}`),
+          axiosReq.get(`/recipes/?post=${id}`),
+        ]);
+        setPost({ results: [post] });
+        setRecipes(recipes);
+      } catch (err) {
+        // console.log(err);
+      }
+    };
+
+    handleMount();
+  }, [id]);
 
   return (
     <Card className={styles.Post}>
@@ -127,12 +151,47 @@ const Post = (props) => {
           </div>
           <div className={styles.Comments}>
           <Link to={`/posts/${id}`}>
-            <ChatBubbleOutlineOutlinedIcon className={styles.Comments}/>
+            <ChatBubbleOutlineOutlinedIcon />
           </Link>
           {comments_count}
           </div>
+          {recipes.results.length  ? (
+                  <div className={styles.Recipes} onClick={() => setRecipeOpen(!recipeOpen)}>
+            <RestaurantMenuOutlinedIcon className={styles.Recipes}/>
+            View Recipe
+          </div>
+           ) : is_owner && recipes.results.length === 0 ? (
+           <div className={styles.Recipes} onClick={() => setRecipeOpen(!recipeOpen)}>
+            <AddCircleOutlineOutlinedIcon  />
+            Add Recipe
+          </div>
+          ) : (
+            <div></div>
+          )}
         </div>
+                 
       </Card.Body>
+      {recipeOpen && (
+        <Card.Body>
+          {is_owner && currentUser ? (
+            <RecipeCreateForm
+              profile_id={currentUser.profile_id}
+              post={id}
+              setPost={setPost}
+              setRecipes={setRecipes}
+            />
+          ) : recipes.results.length ? (
+            <h5>Check out the recipe here!</h5>
+          ) : null}
+          {recipes.results.length ? (
+            <Recipes {...recipes.results[0]} setRecipes={setRecipes} />
+          ) : currentUser ? (
+            <span>No recipe has been added yet!</span>
+          ) : (
+            <span>Sorry no recipe has been added yet!</span>
+          )}
+        </Card.Body>
+  )}
     </Card>
   );
 };

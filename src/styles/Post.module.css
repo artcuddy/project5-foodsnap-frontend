@@ -26,3 +26,11 @@ h5 {
 .Comments:hover {
     color: #767779;
 }
+
+.Comments {
+    margin-right: 1em;
+}
+
+.Recipes:hover {
+    color: #767779;
+}
