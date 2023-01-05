@@ -40,8 +40,6 @@ function RecipeCreateForm(props) {
           },
         ],
       }));
-      setIngredients("");
-      setMethod("");
     } catch (err) {
       // console.log(err);
     }

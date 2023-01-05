@@ -24,15 +24,6 @@ const Recipes = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/recipes/${id}/`);
-      // setPost((prevPost) => ({
-      //   results: [
-      //     {
-      //       ...prevPost.results[0],
-      //       recipes_count: prevPost.results[0].recipes_count - 1,
-      //     },
-      //   ],
-      // }));
-
       setRecipes((prevRecipes) => ({
         ...prevRecipes,
         results: prevRecipes.results.filter((recipe) => recipe.id !== id),

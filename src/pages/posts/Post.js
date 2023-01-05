@@ -16,6 +16,7 @@ import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOu
 import RecipeCreateForm from "../recipes/RecipesCreateForm";
 import Recipes from "../recipes/Recipes";
 import { axiosReq } from "../../api/axiosDefaults";
+import appStyles from "../../App.module.css";
 
 const Post = (props) => {
   const {
@@ -104,7 +105,7 @@ const Post = (props) => {
   }, [id]);
 
   return (
-    <Card className={styles.Post}>
+    <Card className={`${styles.Post} ${appStyles.BoxShadow}`}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>

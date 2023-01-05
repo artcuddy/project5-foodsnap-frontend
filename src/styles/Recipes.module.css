@@ -12,4 +12,5 @@
 .CssFix {
     white-space: pre-wrap;
     /* or pre-line */
+    text-align: left;
 }

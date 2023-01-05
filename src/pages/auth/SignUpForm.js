@@ -133,10 +133,12 @@ const SignUpForm = () => {
         md={6}
         className={`my-auto d-md-block p-2 ${styles.SignUpCol}`}
       >
+        <Container className={`mt-3 ${appStyles.Content} ${styles.SignInUpImage}`}>
         <Image
           className={`${appStyles.FillerImage}`}
           src={logo}
         />
+        </Container>
       </Col>
     </Row>
   );
