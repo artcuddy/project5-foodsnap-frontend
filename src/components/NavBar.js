@@ -14,6 +14,7 @@ import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 import FloatingActionButton from "./FloatingActionButton";
+import HomeIcon from '@mui/icons-material/Home';
 
 
 const NavBar = () => {
@@ -50,7 +51,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/feed"
       >
-        <i className="fa-solid fa-bars-staggered"></i> Feed
+        <i className="fa-solid fa-list"></i> Feed
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -116,7 +117,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              <i className="fas fa-home"></i> Home
+             <HomeIcon /> Home
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}
