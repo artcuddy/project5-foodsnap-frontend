@@ -157,15 +157,19 @@ const Post = (props) => {
           {comments_count}
           </div>
           {recipes.results.length  ? (
+            <Tooltip title="Click to view the recipe" placement="bottom" arrow>
                   <div className={styles.Recipes} onClick={() => setRecipeOpen(!recipeOpen)}>
             <RestaurantMenuOutlinedIcon className={styles.Recipes}/>
             View Recipe
           </div>
+          </Tooltip>
            ) : is_owner && recipes.results.length === 0 ? (
+            <Tooltip title="Click to add a recipe" placement="bottom" arrow>
            <div className={styles.Recipes} onClick={() => setRecipeOpen(!recipeOpen)}>
             <AddCircleOutlineOutlinedIcon  />
             Add Recipe
           </div>
+           </Tooltip>
           ) : (
             <div></div>
           )}

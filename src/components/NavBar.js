@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -14,6 +13,7 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
+import FloatingActionButton from "./FloatingActionButton";
 
 
 const NavBar = () => {
@@ -33,13 +33,15 @@ const NavBar = () => {
   };
 
   const addPostIcon = (
+    <>
     <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
       to="/posts/create"
-    >
-      <i className="far fa-plus-square"></i> Add post
+    > 
+      <FloatingActionButton />
     </NavLink>
+    </>
   );
   const loggedInIcons = (
     <>
@@ -97,7 +99,7 @@ const NavBar = () => {
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
-            <img src={logo} alt="logo" height="45" />
+            <img className={styles.NavLogo} src={logo} alt="logo" height="40" />
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPostIcon}
