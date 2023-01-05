@@ -7,35 +7,27 @@ import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/RecipesCreateEditForm.module.css";
 
 function RecipeEditForm(props) {
-  const { id, setShowEditForm, setRecipes } = props;
+  const { id, ingredients, method, setShowEditForm, setRecipes } = props;
 
-  // const [recipeData, setRecipeData] = useState(ingredients, method);
-  // const { ingredients, method } = recipeData;
+  const [formIngredients, setFormIngredients] = useState(ingredients);
+  const [formMethod, setFormMethod] = useState(method);
 
-  const [ingredients, setIngredients] = useState("");
-  const [method, setMethod] = useState("");
 
   const handleIngredients = (event) => {
-    setIngredients(event.target.value);
+    setFormIngredients(event.target.value);
   };
 
   const handleMethod = (event) => {
-    setMethod(event.target.value);
+    setFormMethod(event.target.value);
   };
 
-  // const handleChange = (event) => {
-  //   setRecipeData({
-  //     ...recipeData,
-  //     [event.target.name]: event.target.value,
-  //   });
-  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axiosRes.put(`/recipes/${id}/`, {
-        ingredients: ingredients.trim(),
-        method: method.trim(),
+        ingredients: formIngredients.trim(),
+        method: formMethod.trim(),
       });
       setRecipes((prevRecipes) => ({
         ...prevRecipes,
@@ -43,8 +35,8 @@ function RecipeEditForm(props) {
           return recipe.id === id
             ? {
                 ...recipe,
-                ingredients: ingredients.trim(),
-                method: method.trim(),
+                ingredients: formIngredients.trim(),
+                method: formMethod.trim(),
                 updated_at: "now",
               }
             : recipe;
@@ -63,7 +55,7 @@ function RecipeEditForm(props) {
           className={styles.Form}
           as="textarea"
           name="ingredients"
-          value={ingredients}
+          value={formIngredients}
           onChange={handleIngredients}
           rows={4}
         />
@@ -73,7 +65,7 @@ function RecipeEditForm(props) {
           className={styles.Form}
           as="textarea"
           name="method"
-          value={method}
+          value={formMethod}
           onChange={handleMethod}
           rows={4}
         />
@@ -88,7 +80,7 @@ function RecipeEditForm(props) {
         </button>
         <button
           className={styles.Button}
-          disabled={!ingredients.trim()}
+          disabled={!formIngredients.trim()}
           type="submit"
         >
           save

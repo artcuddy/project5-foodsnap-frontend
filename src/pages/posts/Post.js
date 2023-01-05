@@ -173,7 +173,7 @@ const Post = (props) => {
       </Card.Body>
       {recipeOpen && (
         <Card.Body>
-          {is_owner && currentUser ? (
+          {is_owner && currentUser && recipes.results.length === 0 ? (
             <RecipeCreateForm
               profile_id={currentUser.profile_id}
               post={id}
