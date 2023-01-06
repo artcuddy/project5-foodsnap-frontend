@@ -35,3 +35,8 @@ h5 {
 .Recipes:hover {
     color: #767779;
 }
+
+span .NoRecipe {
+    margin-top: 16px;
+    align-items: center;
+}

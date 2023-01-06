@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Media } from "react-bootstrap";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import styles from "../../styles/Recipes.module.css";

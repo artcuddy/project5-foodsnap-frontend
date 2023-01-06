@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
+import styles from "../../styles/PostPage.module.css"
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
@@ -53,7 +54,7 @@ function PostPage() {
         <Post {...post.results[0]} setPosts={setPost} postPage />
 
         
-        <Container className={appStyles.Content}>
+        <Container className={`${appStyles.Content} ${styles.Comments}`}>
           {currentUser ? (
             <CommentCreateForm
               profile_id={currentUser.profile_id}

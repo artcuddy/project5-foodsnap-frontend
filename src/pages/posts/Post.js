@@ -40,7 +40,7 @@ const Post = (props) => {
   const history = useHistory();
   const [recipes, setRecipes] = useState({ results: [] });
   const [recipeOpen, setRecipeOpen] = useState(false);
-  const [post, setPost] = useState({ results: [] });
+
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -87,22 +87,25 @@ const Post = (props) => {
     }
   };
 
-  useEffect(() => {
-    const handleMount = async () => {
+    useEffect(() => {
+    const fetchRecipes = async () => {
       try {
-        const [{ data: post }, { data: recipes }] = await Promise.all([
-          axiosReq.get(`/posts/${id}`),
-          axiosReq.get(`/recipes/?post=${id}`),
-        ]);
-        setPost({ results: [post] });
-        setRecipes(recipes);
+        const { data } = await axiosReq.get(`/recipes/?post=${id}`);
+        setRecipes(data);
       } catch (err) {
         // console.log(err);
       }
     };
 
-    handleMount();
-  }, [id]);
+    const timer = setTimeout(() => {
+      fetchRecipes();
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [id, currentUser]);
+
 
   return (
     <Card className={`${styles.Post} ${appStyles.BoxShadow}`}>
@@ -189,7 +192,6 @@ const Post = (props) => {
             <RecipeCreateForm
               profile_id={currentUser.profile_id}
               post={id}
-              setPost={setPost}
               setRecipes={setRecipes}
             />
           ) : recipes.results.length ? (
@@ -198,9 +200,9 @@ const Post = (props) => {
           {recipes.results.length ? (
             <Recipes {...recipes.results[0]} setRecipes={setRecipes} />
           ) : currentUser ? (
-            <span>No recipe has been added yet!</span>
+            <span className={styles.NoRecipe}>No recipe has been added yet!</span>
           ) : (
-            <span>Sorry no recipe has been added yet!</span>
+            <span className={styles.NoRecipe}>Sorry no recipe has been added yet!</span>
           )}
         </Card.Body>
   )}
