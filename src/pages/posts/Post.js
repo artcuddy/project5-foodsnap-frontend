@@ -156,11 +156,18 @@ const Post = (props) => {
           </Link>
           {comments_count}
           </div>
-          {recipes.results.length  ? (
+          {recipes.results.length && currentUser ? (
             <Tooltip title="Click to view the recipe" placement="bottom" arrow>
                   <div className={styles.Recipes} onClick={() => setRecipeOpen(!recipeOpen)}>
             <RestaurantMenuOutlinedIcon className={styles.Recipes}/>
             View Recipe
+          </div>
+          </Tooltip>
+           ) : recipes.results.length && !currentUser ? (
+            <Tooltip title="Login to view the recipe" placement="bottom" arrow>
+                  <div className={styles.Recipes} >
+            <RestaurantMenuOutlinedIcon className={styles.Recipes}/>
+            Login for Recipe
           </div>
           </Tooltip>
            ) : is_owner && recipes.results.length === 0 ? (

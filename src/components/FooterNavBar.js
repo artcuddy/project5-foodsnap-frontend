@@ -49,13 +49,9 @@ const FixedFooterNavigation = () => {
   )
 
   return (
-
-
-      <Paper className={styles.FooterBar} sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                  
- {currentUser ? loggedInBar : loggedOutBar}
+      <Paper className={styles.FooterBar} sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>             
+      {currentUser ? loggedInBar : loggedOutBar}
       </Paper>
-
   );
 }
 
