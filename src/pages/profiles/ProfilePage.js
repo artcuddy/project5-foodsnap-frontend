@@ -113,9 +113,9 @@ function ProfilePage() {
 
   const mainProfilePosts = (
     <>
-      <hr />
-      <p className="text-center">{profile?.owner}'s posts</p>
-      <hr />
+    <Col className="p-3">
+      <h3 className={styles.ProfileTitle}>{profile?.owner}'s foodSNAPS</h3>
+              </Col>
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
@@ -139,16 +139,18 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
+            <Container className={appStyles.Content}>
               {mainProfile}
+              </Container>
+
               {mainProfilePosts}
+
             </>
           ) : (
             <Asset spinner />
           )}
-        </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
