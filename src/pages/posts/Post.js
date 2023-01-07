@@ -163,7 +163,7 @@ const Post = (props) => {
             <Tooltip title="Click to view the recipe" placement="bottom" arrow>
                   <div className={styles.Recipes} onClick={() => setRecipeOpen(!recipeOpen)}>
             <RestaurantMenuOutlinedIcon className={styles.Recipes}/>
-            View Recipe
+            Recipe
           </div>
           </Tooltip>
            ) : recipes.results.length && !currentUser ? (
@@ -195,7 +195,7 @@ const Post = (props) => {
               setRecipes={setRecipes}
             />
           ) : recipes.results.length ? (
-            <h5>Check out the recipe here!</h5>
+            <h5>How to ...</h5>
           ) : null}
           {recipes.results.length ? (
             <Recipes {...recipes.results[0]} setRecipes={setRecipes} />

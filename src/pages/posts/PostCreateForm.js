@@ -73,7 +73,7 @@ function PostCreateForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label className={styles.FormTitle}>Title</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -88,7 +88,7 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Description</Form.Label>
+        <Form.Label className={styles.FormTitle}>Description</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
@@ -117,7 +117,7 @@ function PostCreateForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Row>
+      <Row className={styles.Row}>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
@@ -144,7 +144,7 @@ function PostCreateForm() {
                 >
                   <Asset
                     src={Upload}
-                    message="Click or tap to upload an image"
+                    message="Click or tap to upload a foodSNAP"
                   />
                 </Form.Label>
               )}
