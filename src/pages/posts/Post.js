@@ -195,9 +195,6 @@ const Post = (props) => {
               setRecipes={setRecipes}
             />
           ) : recipes.results.length ? (
-            <h5>How to ...</h5>
-          ) : null}
-          {recipes.results.length ? (
             <Recipes {...recipes.results[0]} setRecipes={setRecipes} />
           ) : currentUser ? (
             <span className={styles.NoRecipe}>No recipe has been added yet!</span>

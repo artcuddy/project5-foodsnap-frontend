@@ -48,11 +48,11 @@ return (
           ) : (
             <>
             <div>
-                <h4>Ingredients</h4>
+                <h5 className={styles.RecipeTitle}>Ingredients</h5>
                 <p className={styles.CssFix}>{ingredients}</p>
             </div>
             <div>
-                <h4>Method</h4>
+                <h5 className={styles.RecipeTitle}>Method</h5>
                 <p className={styles.CssFix}>{method}</p>
             </div>
             </>

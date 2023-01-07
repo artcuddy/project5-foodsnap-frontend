@@ -14,3 +14,7 @@
     /* or pre-line */
     text-align: left;
 }
+
+.RecipeTitle {
+    padding: 1em;
+}

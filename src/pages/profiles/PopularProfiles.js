@@ -7,6 +7,7 @@ import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
 import foodSnappers from "../../assets/foodsnappers.webp";
 
+
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
 
