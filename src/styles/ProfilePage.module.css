@@ -7,8 +7,22 @@
 
 .ProfileTitle {
     text-align: center;
-    color: #8a8a8a
+    color: #8a8a8a;
 }
+
+.ProfileContent {
+    font-size: 1em;
+    padding-bottom: 32px;
+}
+
+.CountNumber{
+    color: #000;
+}
+
+.CountText {
+    color: #8a8a8a;
+}
+
 
 @media screen and (max-width: 991px) {
     .ProfileImage {

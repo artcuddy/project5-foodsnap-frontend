@@ -41,6 +41,10 @@ span .NoRecipe {
     align-items: center;
 }
 
+.Date {
+    color: #8a8a8a;
+}
+
 @media only screen and (max-width: 600px){
     .Post {
         margin-right: 8px;

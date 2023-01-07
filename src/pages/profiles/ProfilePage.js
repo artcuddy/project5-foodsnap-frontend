@@ -24,6 +24,7 @@ import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.webp";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import Fab from "@mui/material/Fab";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -71,19 +72,29 @@ function ProfilePage() {
           />
         </Col>
         <Col lg={6}>
-          <h3 className="m-2">{profile?.owner}</h3>
+          <h3 className={`${styles.ProfileName} "m-2"`}>{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
-              <div>{profile?.posts_count}</div>
-              <div>posts</div>
+              <Fab disabled size="small" color="black" aria-label="posts">
+                <div className={styles.CountNumber}>{profile?.posts_count}</div>
+              </Fab>
+              <div className={styles.CountText}>posts</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>{profile?.followers_count}</div>
-              <div>followers</div>
+              <Fab disabled size="small" color="black" aria-label="followers">
+                <div className={styles.CountNumber}>
+                  {profile?.followers_count}
+                </div>
+              </Fab>
+              <div className={styles.CountText}>followers</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>{profile?.following_count}</div>
-              <div>following</div>
+              <Fab disabled size="small" color="black" aria-label="following">
+                <div className={styles.CountNumber}>
+                  {profile?.following_count}
+                </div>
+              </Fab>
+              <div className={styles.CountText}>following</div>
             </Col>
           </Row>
         </Col>
@@ -106,16 +117,17 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        {profile?.content && <Col className="p-3">{profile.content}</Col>}
+        {profile?.content && (
+          <Col className={`${styles.ProfileContent} "p-3"`}>
+            {profile.content}
+          </Col>
+        )}
       </Row>
     </>
   );
 
   const mainProfilePosts = (
     <>
-    <Col className="p-3">
-      <h3 className={styles.ProfileTitle}>{profile?.owner}'s foodSNAPS</h3>
-              </Col>
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
@@ -139,18 +151,15 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-          {hasLoaded ? (
-            <>
-            <Container className={appStyles.Content}>
-              {mainProfile}
-              </Container>
+        {hasLoaded ? (
+          <>
+            <Container className={appStyles.Content}>{mainProfile}</Container>
 
-              {mainProfilePosts}
-
-            </>
-          ) : (
-            <Asset spinner />
-          )}
+            {mainProfilePosts}
+          </>
+        ) : (
+          <Asset spinner />
+        )}
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
