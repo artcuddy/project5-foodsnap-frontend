@@ -25,6 +25,7 @@ import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.webp";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import Fab from "@mui/material/Fab";
+import PopularPosts from "../posts/PopularPosts";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -73,12 +74,12 @@ function ProfilePage() {
         </Col>
         <Col lg={6}>
           <h3 className={`${styles.ProfileName} "m-2"`}>{profile?.owner}</h3>
-          <Row className="justify-content-center no-gutters">
+          <Row className="justify-content-between no-gutters">
             <Col xs={3} className="my-2">
               <Fab disabled size="small" color="black" aria-label="posts">
                 <div className={styles.CountNumber}>{profile?.posts_count}</div>
               </Fab>
-              <div className={styles.CountText}>posts</div>
+              <div className={styles.CountText}>foodSNAPS</div>
             </Col>
             <Col xs={3} className="my-2">
               <Fab disabled size="small" color="black" aria-label="followers">
@@ -163,6 +164,7 @@ function ProfilePage() {
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
+        <PopularPosts />
       </Col>
     </Row>
   );

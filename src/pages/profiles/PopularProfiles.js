@@ -7,7 +7,6 @@ import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
 import foodSnappers from "../../assets/foodsnappers.webp";
 
-
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
 
@@ -19,7 +18,15 @@ const PopularProfiles = ({ mobile }) => {
     >
       {popularProfiles.results.length ? (
         <>
-          <p className={styles.Title}>Popular <img className={styles.FoodSnappers} src={foodSnappers} alt="Popular foodSNAPPERS" height="20" /></p> 
+          <p className={styles.Title}>
+            Popular{" "}
+            <img
+              className={styles.FoodSnappers}
+              src={foodSnappers}
+              alt="Popular foodSNAPPERS"
+              height="20"
+            />
+          </p>
           {mobile ? (
             <div className="d-flex justify-content-around">
               {popularProfiles.results.slice(0, 4).map((profile) => (
