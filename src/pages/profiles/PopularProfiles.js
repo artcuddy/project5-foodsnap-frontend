@@ -29,14 +29,17 @@ const PopularProfiles = ({ mobile }) => {
           </p>
           {mobile ? (
             <div className="d-flex justify-content-around">
-              {popularProfiles.results.slice(0, 4).map((profile) => (
-                <Profile key={profile.id} profile={profile} mobile />
-              ))}
+              {popularProfiles.results
+                .slice(0, 4)
+                .filter((profile) => profile.followers_count >= 2)
+                .map((profile) => (
+                  <Profile key={profile.id} profile={profile} mobile />
+                ))}
             </div>
           ) : (
-            popularProfiles.results.map((profile) => (
-              <Profile key={profile.id} profile={profile} />
-            ))
+            popularProfiles.results
+              .filter((profile) => profile.followers_count >= 2)
+              .map((profile) => <Profile key={profile.id} profile={profile} />)
           )}
         </>
       ) : (

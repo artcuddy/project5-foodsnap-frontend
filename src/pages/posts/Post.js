@@ -134,57 +134,74 @@ const Post = (props) => {
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.PostBar}>
           <div className={styles.Heart}>
-          {is_owner ? (
-          <Tooltip title="You can't like your own post!" placement="top" arrow>
-              <FavoriteBorderOutlinedIcon />
-          </Tooltip> 
-          ) : like_id ? (
-            <span onClick={handleUnlike}>
-              <FavoriteIcon  sx={{ color: red[500] }}/>
-            </span>
-          ) : currentUser ? (
-            <span onClick={handleLike}>
-              <FavoriteBorderOutlinedIcon />
-            </span>
-          ) : (
-          <Tooltip title="Please login to like posts!" placement="top" arrow>
-              <FavoriteIcon />
-          </Tooltip> 
-          )}
-          {likes_count}
+            {is_owner ? (
+              <Tooltip
+                title="You can't like your own post!"
+                placement="top"
+                arrow
+              >
+                <FavoriteBorderOutlinedIcon />
+              </Tooltip>
+            ) : like_id ? (
+              <span onClick={handleUnlike}>
+                <FavoriteIcon sx={{ color: red[500] }} />
+              </span>
+            ) : currentUser ? (
+              <span onClick={handleLike}>
+                <FavoriteBorderOutlinedIcon />
+              </span>
+            ) : (
+              <Tooltip
+                title="Please login to like posts!"
+                placement="top"
+                arrow
+              >
+                <Link to={"/signin"}>
+                  <FavoriteIcon />
+                </Link>
+              </Tooltip>
+            )}
+            {likes_count}
           </div>
           <div className={styles.Comments}>
-          <Link to={`/posts/${id}`}>
-            <ChatBubbleOutlineOutlinedIcon />
-          </Link>
-          {comments_count}
+            <Link to={`/posts/${id}`}>
+              <ChatBubbleOutlineOutlinedIcon />
+            </Link>
+            {comments_count}
           </div>
           {recipes.results.length && currentUser ? (
             <Tooltip title="Click to view the recipe" placement="bottom" arrow>
-                  <div className={styles.Recipes} onClick={() => setRecipeOpen(!recipeOpen)}>
-            <RestaurantMenuOutlinedIcon className={styles.Recipes}/>
-            Recipe
-          </div>
-          </Tooltip>
-           ) : recipes.results.length && !currentUser ? (
+              <div
+                className={styles.Recipes}
+                onClick={() => setRecipeOpen(!recipeOpen)}
+              >
+                <RestaurantMenuOutlinedIcon className={styles.Recipes} />
+                Recipe
+              </div>
+            </Tooltip>
+          ) : recipes.results.length && !currentUser ? (
             <Tooltip title="Login to view the recipe" placement="bottom" arrow>
-                  <div className={styles.Recipes} >
-            <RestaurantMenuOutlinedIcon className={styles.Recipes}/>
-            Login for Recipe
-          </div>
-          </Tooltip>
-           ) : is_owner && recipes.results.length === 0 ? (
+              <Link to={"/signin"}>
+                <div className={styles.Recipes}>
+                  <RestaurantMenuOutlinedIcon className={styles.Recipes} />
+                  Login for Recipe
+                </div>
+              </Link>
+            </Tooltip>
+          ) : is_owner && recipes.results.length === 0 ? (
             <Tooltip title="Click to add a recipe" placement="bottom" arrow>
-           <div className={styles.Recipes} onClick={() => setRecipeOpen(!recipeOpen)}>
-            <AddCircleOutlineOutlinedIcon  />
-            Add Recipe
-          </div>
-           </Tooltip>
+              <div
+                className={styles.Recipes}
+                onClick={() => setRecipeOpen(!recipeOpen)}
+              >
+                <AddCircleOutlineOutlinedIcon />
+                Add Recipe
+              </div>
+            </Tooltip>
           ) : (
             <div></div>
           )}
         </div>
-                 
       </Card.Body>
       {recipeOpen && (
         <Card.Body>
@@ -197,12 +214,16 @@ const Post = (props) => {
           ) : recipes.results.length ? (
             <Recipes {...recipes.results[0]} setRecipes={setRecipes} />
           ) : currentUser ? (
-            <span className={styles.NoRecipe}>No recipe has been added yet!</span>
+            <span className={styles.NoRecipe}>
+              No recipe has been added yet!
+            </span>
           ) : (
-            <span className={styles.NoRecipe}>Sorry no recipe has been added yet!</span>
+            <span className={styles.NoRecipe}>
+              Sorry no recipe has been added yet!
+            </span>
           )}
         </Card.Body>
-  )}
+      )}
     </Card>
   );
 };
