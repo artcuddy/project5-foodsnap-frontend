@@ -1,8 +1,9 @@
-import styles from "../../styles/Post.module.css";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Fab from "@mui/material/Fab";
 
 import appStyles from "../../App.module.css";
+import styles from "../../styles/PopularPost.module.css";
 
 const PopularPost = (props) => {
   const { id, title, likes_count, image } = props;
@@ -13,7 +14,15 @@ const PopularPost = (props) => {
         <Card.Img src={image} alt={title} />
       </Link>
       <Card.Body>
-        {likes_count}
+        <Fab
+          className={styles.Circle}
+          disabled
+          size="large"
+          color="black"
+          aria-label="posts"
+        >
+          <div className={styles.CountNumber}>{likes_count} likes</div>
+        </Fab>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
       </Card.Body>
     </Card>
