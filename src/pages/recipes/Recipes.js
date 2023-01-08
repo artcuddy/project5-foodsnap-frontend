@@ -5,6 +5,8 @@ import styles from "../../styles/Recipes.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import RecipeEditForm from "./RecipeEditForm";
+import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBulletedOutlined";
+import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 
 const Recipes = (props) => {
   const {
@@ -32,41 +34,47 @@ const Recipes = (props) => {
   };
 
 return (
-    <>
-      <hr />
-      <Media>
-        <Media.Body className="align-self-center ml-2">
-          {is_owner && showEditForm ? (
-            <RecipeEditForm
-      id={id}
-      profile_id={profile_id}
-      ingredients={ingredients}
-      method={method}
-      setRecipes={setRecipes}
-      setShowEditForm={setShowEditForm}
-    />
-          ) : (
-            <>
-            <div>
-                <h5 className={styles.RecipeTitle}>Ingredients</h5>
-                <p className={styles.CssFix}>{ingredients}</p>
-            </div>
-            <div>
-                <h5 className={styles.RecipeTitle}>Method</h5>
-                <p className={styles.CssFix}>{method}</p>
-            </div>
-            </>
-          )}
-        </Media.Body>
-        {is_owner && !showEditForm && (
-          <MoreDropdown
-            handleEdit={() => setShowEditForm(true)}
-            handleDelete={handleDelete}
+  <>
+    <hr />
+    <Media>
+      <Media.Body className="align-self-center ml-2">
+        {is_owner && showEditForm ? (
+          <RecipeEditForm
+            id={id}
+            profile_id={profile_id}
+            ingredients={ingredients}
+            method={method}
+            setRecipes={setRecipes}
+            setShowEditForm={setShowEditForm}
           />
+        ) : (
+          <>
+            <div className={styles.RecipeDiv}>
+              <h5 className={styles.RecipeTitle}>
+                <FormatListBulletedOutlinedIcon /> Ingredients
+              </h5>
+              <p className={styles.CssFix}>{ingredients}</p>
+            </div>
+            <div className={styles.RecipeDiv}>
+              <h5 className={styles.RecipeTitle}>
+                <MenuBookOutlinedIcon /> Method
+              </h5>
+              <p className={styles.CssFix}>
+                {method}
+              </p>
+            </div>
+          </>
         )}
-      </Media>
-    </>
-  );
+      </Media.Body>
+      {is_owner && !showEditForm && (
+        <MoreDropdown
+          handleEdit={() => setShowEditForm(true)}
+          handleDelete={handleDelete}
+        />
+      )}
+    </Media>
+  </>
+);
 };
 
 export default Recipes;
