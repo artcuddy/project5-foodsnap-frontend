@@ -13,17 +13,17 @@ const PopularPost = (props) => {
       <Link to={`/posts/${id}`}>
         <Card.Img src={image} alt={title} />
       </Link>
-      <Card.Body>
-        <Fab
-          className={styles.Circle}
-          disabled
-          size="large"
-          color="black"
-          aria-label="posts"
-        >
-          <div className={styles.CountNumber}>{likes_count} likes</div>
-        </Fab>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
+      <Fab
+        className={styles.Circle}
+        disabled
+        size="large"
+        color="black"
+        aria-label="posts"
+      >
+        <div className={styles.CountNumber}>{likes_count} likes</div>
+      </Fab>
+      <Card.Body className={styles.Card}>
+        {title && <Card.Title className={`${styles.Title} ${"text-center"}`}>{title}</Card.Title>}
       </Card.Body>
     </Card>
   );
