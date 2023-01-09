@@ -19,15 +19,11 @@ function PopularPosts({ mobile, message, filter = "" }) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const currentUser = useCurrentUser();
-  // const hasMostLikes = (post) => post.likes_count >= 2;
-  // const filteredPosts = (post) =>
-  //       post.likes_count.filter(hasMostLikes).length > 0;
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const { data } = await axiosReq.get("/posts/");
-        // setPosts(data.find((posts) => posts.likes_count >= 2));
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
@@ -65,9 +61,8 @@ function PopularPosts({ mobile, message, filter = "" }) {
           {posts.results.length ? (
             <>
               {posts.results
-                .slice(0, 4)
-                .filter((post) => post.likes_count >= 2)
-                .reverse()
+                .filter((post) => post.likes_count >= 3)
+                .sort((a, b) => a.likes_count < b.likes_count)
                 .map((post) => (
                   <PopularPost key={post.id} {...post} setPosts={setPosts} />
                 ))}
