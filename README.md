@@ -19,7 +19,7 @@ Find great recipes to try that your friends have uploaded!!!</h2>
   - [Homepage](#homepage)
   - [Navigation Desktop](#navigation-desktop)
   - [Navigation Mobile](#navigation-mobile)
-  - [Cocktail Recipe Details](#cocktail-recipe-details)
+  - [foodSNAP Recipe Details](#cocktail-recipe-details)
   - [Cocktail Recipe Sidebar](#cocktail-recipe-sidebar)
   - [Liked Cocktails](#liked-cocktails)
   - [All Cocktails](#all-cocktails)
@@ -138,11 +138,9 @@ Initial Wireframes
 
 ![Home Page](documentation/wireframes/homepage.webp)
 
-![All Cocktails](documentation/wireframes/all-cocktails.webp)
+![All foodSNAPS](documentation/wireframes/all-cocktails.webp)
 
-![All Cocktails Admin](documentation/wireframes/all-cocktails-admin.webp)
-
-![Post Detail](documentation/wireframes/post-detail.webp)
+![foodSNAP Detail](documentation/wireframes/post-detail.webp)
 
 <h1 id="features">Features</h1>
 
