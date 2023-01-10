@@ -14,7 +14,6 @@ Find great recipes to try that your friends have uploaded!!!</h2>
   - [Colours](#colours)
   - [Typography](#typography)
   - [Media](#media)
-  - [Database](#database)
   - [Wireframes](#wireframes)
 - [Features](#features)
   - [Homepage](#homepage)
@@ -133,10 +132,6 @@ The Github issues were not just used to record User Stories but also used to rec
 
 - The logo and favicon are designed by me in<a href="https://www.sketch.com" target="_blank"> Sketch </a>
 
-<h2 id="database">Database Diagram</h2>
-
-![Database Diagram](documentation/database_model/database-diagram.webp)
-
 <h2 id="wireframes">Wireframes</h2>
 
 Initial Wireframes
@@ -180,9 +175,9 @@ Initial Wireframes
 
 <a href="#top">Back to the top.</a>
 
-- Navigation menu when nobody is logged in only options are home, login & sign-up.
+- Navigation menu when nobody is logged in only menu options are home, login & sign-up.
 
-- There is also a sticky footer navigation on mobile with only the home option.
+- There is also a sticky footer navigation on mobile with the only the home option.
 
 <img src="documentation/screenshots/mobile-logged-out.webp">
 
@@ -196,7 +191,7 @@ Initial Wireframes
 
 <a href="#top">Back to the top.</a>
 
-- When an authenticated user is logged in they can upload, create, edit, like, comment & add a recipe on the post detail page.
+- When an authenticated user is logged in they can upload, create, edit, like, comment & add a recipe on the foodSNAP detail page.
 
 - Create foodSNAP
 
