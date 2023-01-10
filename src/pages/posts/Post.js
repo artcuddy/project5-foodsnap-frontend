@@ -13,6 +13,7 @@ import { red } from '@mui/material/colors';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import RestaurantMenuOutlinedIcon from '@mui/icons-material/RestaurantMenuOutlined';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import RecipeCreateForm from "../recipes/RecipesCreateForm";
 import Recipes from "../recipes/Recipes";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -181,7 +182,11 @@ const Post = (props) => {
                 className={styles.Recipes}
                 onClick={() => setRecipeOpen(!recipeOpen)}
               >
-                <RestaurantMenuOutlinedIcon className={styles.Recipes} />
+                {!recipeOpen ? (
+                  <RestaurantMenuOutlinedIcon className={styles.Recipes} />
+                ) : (
+                  <CloseOutlinedIcon />
+                )}
                 Recipe
               </div>
             </Tooltip>
