@@ -42,7 +42,7 @@ function PostsPage({ message, filter = "" }) {
     setHasLoaded(false);
     const timer = setTimeout(() => {
       fetchPosts();
-    }, 1000);
+    }, 500);
 
     return () => {
       clearTimeout(timer);

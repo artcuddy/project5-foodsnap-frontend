@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media} from "react-bootstrap";
+import { Card, Media } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
-import Tooltip from '@mui/material/Tooltip';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { red } from '@mui/material/colors';
-import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
-import RestaurantMenuOutlinedIcon from '@mui/icons-material/RestaurantMenuOutlined';
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import Tooltip from "@mui/material/Tooltip";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { red } from "@mui/material/colors";
+import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import RecipeCreateForm from "../recipes/RecipesCreateForm";
 import Recipes from "../recipes/Recipes";
@@ -41,7 +41,6 @@ const Post = (props) => {
   const history = useHistory();
   const [recipes, setRecipes] = useState({ results: [] });
   const [recipeOpen, setRecipeOpen] = useState(false);
-
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -88,7 +87,7 @@ const Post = (props) => {
     }
   };
 
-    useEffect(() => {
+  useEffect(() => {
     const fetchRecipes = async () => {
       try {
         const { data } = await axiosReq.get(`/recipes/?post=${id}`);
@@ -106,7 +105,6 @@ const Post = (props) => {
       clearTimeout(timer);
     };
   }, [id, currentUser]);
-
 
   return (
     <Card className={`${styles.Post} ${appStyles.BoxShadow}`}>
