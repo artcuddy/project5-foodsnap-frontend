@@ -213,7 +213,7 @@ Initial Wireframes
 
 <a href="#top">Back to the top.</a>
 
-- The sidebar displays the top 5 followed foodSNAPPER's and below that the 4 top liked foodSNAPS with 3 or more likes.
+- The sidebar displays the top 5 followed foodSNAPPER's and below that the 4 top liked foodSNAPS with 2 or more likes.
 
 - Popular foodSNAPPERS
 

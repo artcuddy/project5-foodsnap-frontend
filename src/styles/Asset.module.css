@@ -4,9 +4,15 @@
     justify-content: center;
     align-items: center;
     min-height: 120px;
+    margin-bottom: 64px;
 }
 
 .Message {
     font-weight: 900;
     margin-top: 16px;
+}
+
+.Image {
+    width: 100px;
+    height: 100px;
 }
