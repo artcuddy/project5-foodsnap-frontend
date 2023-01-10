@@ -24,7 +24,8 @@
     position: absolute !important;
     top: 6px;
     left: 6px;
-    background-color: #1c1c1c8c !important
+    background-color: #1c1c1c8c !important;
+    z-index: 2!important;
 }
 
 @media only screen and (max-width: 600px) {
