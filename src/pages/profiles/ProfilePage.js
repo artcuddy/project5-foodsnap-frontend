@@ -79,7 +79,11 @@ function ProfilePage() {
               <Fab disabled size="small" color="black" aria-label="posts">
                 <div className={styles.CountNumber}>{profile?.posts_count}</div>
               </Fab>
-              <div className={styles.CountText}>foodSNAPS</div>
+              {profilePosts.results.length === 1 ? (
+                <div className={styles.CountText}>foodSNAP</div>
+              ) : (
+                <div className={styles.CountText}>foodSNAPS</div>
+              )}
             </Col>
             <Col xs={3} className="my-2">
               <Fab disabled size="small" color="black" aria-label="followers">
@@ -87,7 +91,11 @@ function ProfilePage() {
                   {profile?.followers_count}
                 </div>
               </Fab>
-              <div className={styles.CountText}>followers</div>
+              {profile?.followers_count === 1 ? (
+                <div className={styles.CountText}>follower</div>
+              ) : (
+                <div className={styles.CountText}>followers</div>
+              )}
             </Col>
             <Col xs={3} className="my-2">
               <Fab disabled size="small" color="black" aria-label="following">
