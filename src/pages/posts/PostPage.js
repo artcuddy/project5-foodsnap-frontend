@@ -5,23 +5,20 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
-import styles from "../../styles/PostPage.module.css"
+import styles from "../../styles/PostPage.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 import Comment from "../comments/Comment";
-
-
 import CommentCreateForm from "../comments/CommentCreateForm";
-
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import PopularPosts from "./PopularPosts";
-
+import Tooltip from "@mui/material/Tooltip";
+import { Link } from "react-router-dom";
 
 function PostPage() {
   const { id } = useParams();
@@ -84,7 +81,11 @@ function PostPage() {
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
           ) : (
-            <span>No comments... yet</span>
+            <Tooltip title="Please login to comment!" placement="top" arrow>
+              <Link to={"/signin"}>
+                <span>No comments... yet</span>
+              </Link>
+            </Tooltip>
           )}
         </Container>
         <PopularPosts mobile />
