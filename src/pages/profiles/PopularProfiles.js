@@ -19,7 +19,7 @@ const PopularProfiles = ({ mobile }) => {
       {popularProfiles.results.length ? (
         <>
           <p className={styles.Title}>
-            Popular{" "}
+            Followed{" "}
             <img
               className={styles.FoodSnappers}
               src={foodSnappers}
@@ -30,7 +30,7 @@ const PopularProfiles = ({ mobile }) => {
           {mobile ? (
             <div className="d-flex justify-content-around">
               {popularProfiles.results
-                .slice(0, 4)
+                .slice(0, 6)
                 .filter((profile) => profile.followers_count >= 2)
                 .map((profile) => (
                   <Profile key={profile.id} profile={profile} mobile />

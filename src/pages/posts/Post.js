@@ -99,7 +99,7 @@ const Post = (props) => {
 
     const timer = setTimeout(() => {
       fetchRecipes();
-    }, 500);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);

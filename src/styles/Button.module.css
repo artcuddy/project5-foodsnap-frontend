@@ -41,24 +41,18 @@
 
 .BlueOutline,
 .Blue:hover {
-    /* border: 1px solid #2142b2; */
     background-color: #ffffff;
     color: #2142b2;
 }
 
 .Black,
 .BlackOutline:hover {
-    /* background-color: #242a3d;
-  color: white; */
     background-color: #000;
     color: aliceblue;
 }
 
 .Black:hover,
 .BlackOutline {
-    /* background-color: #dadadf;
-  color: #242a3d;
-  border-color: #242a3d; */
     background-color: #e5e5e5;
     color: #000;
 }
@@ -69,16 +63,11 @@
 }
 
 .Black {
-    /* background-color: #242a3d;
-  color: white; */
     background-color: #000;
     color: #fff;
 }
 
 .Black:hover {
-    /* background-color: #dadadf;
-  color: #242a3d;
-  border-color: #242a3d; */
     background-color: #fff;
     color: #000;
     border: solid 1px #000;
