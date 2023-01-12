@@ -16,6 +16,7 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import NotFound from "./components/NotFound";
 import FixedBottomNavigation from "./components/FooterNavBar";
+import ConfirmDialog from "./components/ConfirmDialog";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -77,6 +78,7 @@ function App() {
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>
+      <ConfirmDialog />
       <FixedBottomNavigation />
     </div>
   );

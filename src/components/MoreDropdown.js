@@ -2,28 +2,28 @@ import React from "react";
 import { useHistory } from "react-router";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import IconButton from '@mui/material/IconButton';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import EditIcon from '@mui/icons-material/Edit';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-import PasswordIcon from '@mui/icons-material/Password';
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import IconButton from "@mui/material/IconButton";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import EditIcon from "@mui/icons-material/Edit";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import PasswordIcon from "@mui/icons-material/Password";
+import { confirmDialog } from "../components/ConfirmDialog";
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
-          <IconButton 
-            aria-label="settings"
-            ref={ref}
-            onClick={(e) => {
-            e.preventDefault();
-            onClick(e);
-          }}>
-            <MoreVertIcon />
-          </IconButton>
-        
+  <IconButton
+    aria-label="settings"
+    ref={ref}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+    }}
+  >
+    <MoreVertIcon />
+  </IconButton>
 ));
-
 
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
@@ -43,7 +43,11 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
         </Dropdown.Item>
         <Dropdown.Item
           className={styles.DropdownItem}
-          onClick={handleDelete}
+          onClick={() => {
+            confirmDialog("Do you really want to delete this?", () => {
+              handleDelete();
+            });
+          }}
           aria-label="delete"
         >
           <DeleteForeverIcon />
@@ -52,6 +56,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
     </Dropdown>
   );
 };
+
 
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();
