@@ -14,6 +14,7 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import useAlert from "../../hooks/useAlert";
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
@@ -28,6 +29,7 @@ function PostEditForm() {
   const imageInput = useRef(null);
   const history = useHistory();
   const { id } = useParams();
+  const { setAlert } = useAlert();
 
   useEffect(() => {
     const handleMount = async () => {
@@ -75,10 +77,12 @@ function PostEditForm() {
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
+      setAlert("foodSnap edited!", "success");
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
+        setAlert({setErrors}, "error");
       }
     }
   };

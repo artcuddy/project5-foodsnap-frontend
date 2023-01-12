@@ -17,6 +17,7 @@ import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import NotFound from "./components/NotFound";
 import FixedBottomNavigation from "./components/FooterNavBar";
 import ConfirmDialog from "./components/ConfirmDialog";
+import AlertPopup from "./components/AlertPopup";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -26,6 +27,7 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
+        <AlertPopup />
         <Switch>
           <Route
             exact

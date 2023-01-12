@@ -18,6 +18,7 @@ import RecipeCreateForm from "../recipes/RecipesCreateForm";
 import Recipes from "../recipes/Recipes";
 import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
+import useAlert from "../../hooks/useAlert";
 
 const Post = (props) => {
   const {
@@ -42,6 +43,8 @@ const Post = (props) => {
   const [recipes, setRecipes] = useState({ results: [] });
   const [recipeOpen, setRecipeOpen] = useState(false);
 
+  const { setAlert } = useAlert();
+
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
   };
@@ -50,8 +53,9 @@ const Post = (props) => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
       history.push("/");
+      setAlert("foodSnap Deleted!", "success");
     } catch (err) {
-      // console.log(err);
+     setAlert(err.message, "error");
     }
   };
 
