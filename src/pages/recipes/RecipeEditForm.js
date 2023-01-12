@@ -5,13 +5,14 @@ import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
 
 import styles from "../../styles/RecipesCreateEditForm.module.css";
+import useAlert from "../../hooks/useAlert";
 
 function RecipeEditForm(props) {
   const { id, ingredients, method, setShowEditForm, setRecipes } = props;
 
   const [formIngredients, setFormIngredients] = useState(ingredients);
   const [formMethod, setFormMethod] = useState(method);
-
+  const { setAlert } = useAlert();
 
   const handleIngredients = (event) => {
     setFormIngredients(event.target.value);
@@ -20,7 +21,6 @@ function RecipeEditForm(props) {
   const handleMethod = (event) => {
     setFormMethod(event.target.value);
   };
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -43,15 +43,17 @@ function RecipeEditForm(props) {
         }),
       }));
       setShowEditForm(false);
+      setAlert("Recipe edited!", "success");
     } catch (err) {
       // console.log(err);
+      setAlert(err.message, "error");
     }
   };
 
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group>
-                <Form.Control
+        <Form.Control
           className={styles.Form}
           as="textarea"
           name="ingredients"
@@ -61,7 +63,7 @@ function RecipeEditForm(props) {
         />
       </Form.Group>
       <FormGroup>
-                         <Form.Control
+        <Form.Control
           className={styles.Form}
           as="textarea"
           name="method"

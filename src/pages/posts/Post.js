@@ -53,15 +53,16 @@ const Post = (props) => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
       history.push("/");
-      setAlert("foodSnap Deleted!", "success");
+      setAlert("foodSnap deleted!", "success");
     } catch (err) {
-     setAlert(err.message, "error");
+      setAlert(err.message, "error");
     }
   };
 
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
+      setAlert("foodSnap liked!", "success");
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -72,12 +73,14 @@ const Post = (props) => {
       }));
     } catch (err) {
       // console.log(err);
+      setAlert(err.message, "error");
     }
   };
 
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
+      setAlert("foodSnap unliked!", "success");
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -88,6 +91,7 @@ const Post = (props) => {
       }));
     } catch (err) {
       // console.log(err);
+      setAlert(err.message, "error");
     }
   };
 

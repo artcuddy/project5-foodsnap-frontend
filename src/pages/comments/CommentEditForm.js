@@ -4,11 +4,13 @@ import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
+import useAlert from "../../hooks/useAlert";
 
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
 
   const [formContent, setFormContent] = useState(content);
+  const { setAlert } = useAlert();
 
   const handleChange = (event) => {
     setFormContent(event.target.value);
@@ -33,8 +35,10 @@ function CommentEditForm(props) {
         }),
       }));
       setShowEditForm(false);
+      setAlert("Comment edited!", "success");
     } catch (err) {
       // console.log(err);
+      setAlert(err.message, "error");
     }
   };
 

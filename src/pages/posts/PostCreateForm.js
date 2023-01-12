@@ -19,6 +19,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
+import useAlert from "../../hooks/useAlert";
 
 function PostCreateForm() {
   useRedirect("loggedOut");
@@ -33,6 +34,7 @@ function PostCreateForm() {
 
   const imageInput = useRef(null);
   const history = useHistory();
+  const { setAlert } = useAlert();
 
   const handleChange = (event) => {
     setPostData({
@@ -62,6 +64,7 @@ function PostCreateForm() {
     try {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
+      setAlert("foodSnap created!", "success");
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {

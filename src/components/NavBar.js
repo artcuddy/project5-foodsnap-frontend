@@ -14,6 +14,7 @@ import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 import FloatingActionButton from "./FloatingActionButton";
+import AlertPopup from "../components/AlertPopup";
 
 
 const NavBar = () => {
@@ -101,6 +102,7 @@ const NavBar = () => {
           <Navbar.Brand>
             <img className={styles.NavLogo} src={logo} alt="logo" height="40" />
           </Navbar.Brand>
+          <AlertPopup />
         </NavLink>
         {currentUser && addPostIcon}
         <Navbar.Toggle
@@ -116,7 +118,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-             <i className="fa-solid fa-home"></i> Home
+              <i className="fa-solid fa-home"></i> Home
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}

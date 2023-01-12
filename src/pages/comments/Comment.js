@@ -7,6 +7,7 @@ import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import CommentEditForm from "./CommentEditForm";
+import useAlert from "../../hooks/useAlert";
 
 const Comment = (props) => {
   const {
@@ -25,6 +26,8 @@ const Comment = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  const { setAlert } = useAlert();
+
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
@@ -41,7 +44,10 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
-    } catch (err) {}
+      setAlert("Comment deleted!", "success");
+    } catch (err) {
+      setAlert(err.message, "error");
+    }
   };
 
 return (

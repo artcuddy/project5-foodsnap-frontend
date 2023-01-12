@@ -4,13 +4,15 @@ import Form from "react-bootstrap/Form";
 
 import styles from "../../styles/RecipesCreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
+import useAlert from "../../hooks/useAlert";
 
 
 function RecipeCreateForm(props) {
 
-  const { post, setPost, setRecipes } = props;
+  const { post, setRecipes } = props;
   const [ingredients, setIngredients] = useState("");
   const [method, setMethod] = useState("");
+  const { setAlert } = useAlert();
 
   const handleIngredients = (event) => {
     setIngredients(event.target.value);
@@ -32,16 +34,18 @@ function RecipeCreateForm(props) {
         ...prevRecipes,
         results: [data, ...prevRecipes.results],
       }));
-      setPost((prevPost) => ({
+      setRecipes((prevRecipes) => ({
         results: [
           {
-            ...prevPost.results[0],
-            recipes_count: prevPost.results[0].recipes_count + 1,
+            ...prevRecipes.results[0],
+            recipes_count: prevRecipes.results[0].recipes_count + 1,
           },
         ],
       }));
+      setAlert("Recipe created!", "success");
     } catch (err) {
       // console.log(err);
+      setAlert(err.message, "error");
     }
   };
 
