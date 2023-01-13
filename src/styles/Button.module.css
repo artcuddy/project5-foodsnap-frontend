@@ -32,23 +32,10 @@
     width: 100%;
 }
 
-.Blue,
-.BlueOutline:hover,
-.Bright:hover {
-    background-color: #2142b2;
-    color: #ffffff;
-}
-
-.BlueOutline,
-.Blue:hover {
-    background-color: #ffffff;
-    color: #2142b2;
-}
-
 .Black,
 .BlackOutline:hover {
     background-color: #000;
-    color: aliceblue;
+    color: #e5e5e5;
 }
 
 .Black:hover,

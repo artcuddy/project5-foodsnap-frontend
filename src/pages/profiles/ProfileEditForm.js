@@ -19,7 +19,6 @@ import {
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
-
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -106,13 +105,16 @@ const ProfileEditForm = () => {
         </Alert>
       ))}
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Black}`}
+        className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
         onClick={() => history.goBack()}
       >
-        cancel
+        Cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Black}`} type="submit">
-        save
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Black}`}
+        type="submit"
+      >
+        Save
       </Button>
     </>
   );

@@ -107,16 +107,16 @@ function PostCreateForm() {
       ))}
 
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Black}`}
+        className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
         onClick={() => history.goBack()}
       >
-        cancel
+        Cancel
       </Button>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Black}`}
         type="submit"
       >
-        create
+        Create
       </Button>
     </div>
   );

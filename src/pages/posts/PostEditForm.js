@@ -120,13 +120,16 @@ function PostEditForm() {
       ))}
 
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Black}`}
+        className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
         onClick={() => history.goBack()}
       >
-        cancel
+        Cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Black}`} type="submit">
-        save
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Black}`}
+        type="submit"
+      >
+        Save
       </Button>
     </div>
   );
