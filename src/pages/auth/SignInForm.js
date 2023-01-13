@@ -18,6 +18,7 @@ import logo from "../../assets/logo-white.webp";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
+import useAlert from "../../hooks/useAlert";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -30,6 +31,7 @@ function SignInForm() {
   const { username, password } = signInData;
 
   const [errors, setErrors] = useState({});
+  const { setAlert } = useAlert();
 
   const history = useHistory();
   const handleSubmit = async (event) => {
@@ -40,6 +42,7 @@ function SignInForm() {
       setCurrentUser(data.user);
       setTokenTimestamp(data);
       history.goBack();
+      setAlert("You have logged in succesfully!", "success");
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -112,15 +115,11 @@ function SignInForm() {
           </Link>
         </Container>
       </Col>
-      <Col
-        md={6}
-        className={`my-auto  d-md-block p-2 ${styles.SignInCol}`}
-      >
-        <Container className={`mt-3 ${appStyles.Content} ${styles.SignInUpImage}`}>
-        <Image
-          className={`${appStyles.FillerImage}`}
-          src={logo}
-        />
+      <Col md={6} className={`my-auto  d-md-block p-2 ${styles.SignInCol}`}>
+        <Container
+          className={`mt-3 ${appStyles.Content} ${styles.SignInUpImage}`}
+        >
+          <Image className={`${appStyles.FillerImage}`} src={logo} />
         </Container>
       </Col>
     </Row>

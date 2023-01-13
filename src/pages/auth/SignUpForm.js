@@ -5,6 +5,7 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import logo from "../../assets/logo-white.webp";
+import useAlert from "../../hooks/useAlert";
 
 import {
   Form,
@@ -31,6 +32,8 @@ const SignUpForm = () => {
 
   const history = useHistory();
 
+  const { setAlert } = useAlert();
+
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -43,6 +46,7 @@ const SignUpForm = () => {
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/signin");
+      setAlert("You have registerd succesfully please login!", "success");
     } catch (err) {
       setErrors(err.response?.data);
     }

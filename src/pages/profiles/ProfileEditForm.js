@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
+import useAlert from "../../hooks/useAlert";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import {
@@ -17,6 +18,7 @@ import {
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+
 
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
@@ -34,6 +36,8 @@ const ProfileEditForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  const { setAlert } = useAlert();
+
   useEffect(() => {
     const handleMount = async () => {
       if (currentUser?.profile_id?.toString() === id) {
@@ -42,7 +46,6 @@ const ProfileEditForm = () => {
           const { name, content, image } = data;
           setProfileData({ name, content, image });
         } catch (err) {
-          // console.log(err);
           history.push("/");
         }
       } else {
@@ -77,6 +80,7 @@ const ProfileEditForm = () => {
         profile_image: data.image,
       }));
       history.goBack();
+      setAlert("Profile edited!", "success");
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
