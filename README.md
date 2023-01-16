@@ -1,7 +1,7 @@
-<a id="top" href="https://enigma-code-breaker.herokuapp.com/" target="_blank"><img src="documentation/readme_images/logo-white.webp"></a><br />
+<a id="top" href="https://foodsnap-react.herokuapp.com/" target="_blank"><img src="documentation/readme_images/logo-white.webp"></a><br />
 
-<h2>Upload your foodSnaps and share them with your friends.<br />
-Find great recipes to try that your friends have uploaded!</h2>
+<h2>Upload your foodSnaps so your friends can comment & like your foodSNAPS.<br />
+Follow other users & find great recipes to try out that they have uploaded to foodSNAP!</h2>
 
 <h1 id="contents">Contents</h1>
 
@@ -19,14 +19,14 @@ Find great recipes to try that your friends have uploaded!</h2>
   - [Homepage](#homepage)
   - [Navigation Desktop](#navigation-desktop)
   - [Navigation Mobile](#navigation-mobile)
-  - [foodSNAP Recipe Details](#foodsnap-recipe-details)
-  - [foodSNAP Recipe Sidebar](#foodsnap-recipe-sidebar)
+  - [foodSNAP Details](#foodsnap-details)
+  - [foodSNAP Sidebar](#foodsnap-sidebar)
   - [Liked foodSNAPS](#liked-foodsnaps)
   - [Search Results](#search-results)
   - [Future Features](#future-features)
 - [Technologies](#technologies)
   - [Languages](#languages)
-  - [Django Packages](#django-packages)
+  - [React Packages](#react-packages)
   - [Frameworks & Libraries](#frameworks)
 - [Development & Testing](#testing)
   - [Database](#database)
@@ -181,7 +181,7 @@ Initial Wireframes
 
 <img src="documentation/screenshots/mobile-logged-in.webp">
 
-<h2 id="cocktail-recipe-details">foodSNAP Details</h2>
+<h2 id="foodsnap-details">foodSNAP Details</h2>
 
 <a href="#top">Back to the top.</a>
 
@@ -203,11 +203,11 @@ Initial Wireframes
 
 <img src="documentation/screenshots/add-comment.webp">
 
-<h2 id="foodsnap-recipe-sidebar">foodSnap Sidebar</h2>
+<h2 id="foodsnap-sidebar">foodSNAP Sidebar</h2>
 
 <a href="#top">Back to the top.</a>
 
-- The sidebar displays the top 5 followed foodSNAPPER's and below that the 4 top liked foodSNAPS with 2 or more likes.
+- The sidebar displays the top 5 followed foodSNAPPERS with 2 or more followers and below that the 4 top liked foodSNAPS with 2 or more likes.
 
 - Popular foodSNAPPERS
 
@@ -221,7 +221,7 @@ Initial Wireframes
 
 <a href="#top">Back to the top.</a>
 
-- When an authenticated user likes a foodSNAP this will be added to their liked posts page which can be accessed by clicking on the liked icon on the navbar.
+- When an authenticated user likes a foodSNAP this will be added to their liked foodSNAPS page which can be accessed by clicking on the heart liked icon on the navbar.
 
 <img src="documentation/readme_images/screenshots/liked-cocktails.webp">
 
@@ -229,23 +229,11 @@ Initial Wireframes
 
 <a href="#top">Back to the top.</a>
 
-- Enter a search word in the search box and click enter the search results will be displayed on the search results page
+- Enter a search word in the search box and click enter the search results will be displayed filterd by the search word.
 
-- The search is performed on the Title & the Ingredients fields
+- The search is performed on the foodSNAP title & the username fields.
 
 <img src="documentation/readme_images/screenshots/search-results.webp">
-
-<h2 id="admin-frontend">Admin on the Frontend</h2>
-
-<a href="#top">Back to the top.</a>
-
-- Superusers or staffusers are able to magae the posts and actegories on the frontend by selecting the Post Mgt or Category Mgt link from the Admin dropdown menu.
-
-- This brings you to the Post Mgt & Categoy Mgt pages where posts can be edited or deleted.
-
-<img src="documentation/readme_images/screenshots/manage-posts.webp">
-
-<img src="documentation/readme_images/screenshots/manage-categories.webp">
 
 <h2 id="future-features">Possible Future Features</h2>
 
@@ -253,64 +241,50 @@ Initial Wireframes
 
 - Social login to allow the user to signup using Facebook or Google
 
-- Password reset on the users profile page
-
-- Allowing users to post their own cocktail recipes
+- Allowing users to share their foodSNAPS with other users
 
 <h1 id="technologies">Technologies</h1>
 
 <a href="#top">Back to the top.</a>
 
-Throughout the planning, design, testing and deployment of the Cocktail Nerd Website , I have used a number of technologies listed below:
+Throughout the planning, design, testing and deployment of the foodSNAP app , I have used a number of technologies listed below:
 
 <h2 id="languages">Languages Used</h2>
 
 - [HTML 5](https://en.wikipedia.org/wiki/HTML/)
 - [CSS 3](https://en.wikipedia.org/wiki/CSS)
 - [JavaScript](https://www.javascript.com/)
-- [Django](https://www.python.org/)
-- [Python](https://www.djangoproject.com/)
+- [React](https://reactjs.org/)
 
-<h2 id="django-packages">Django Packages Used</h2>
+<h2 id="react-packages">React Dependencies Used</h2>
 
-- [Gunicorn](https://gunicorn.org/)<br>
-  As the server for Heroku
-- [Cloudinary](https://cloudinary.com/)<br>
-  Was used to host the static files and media
-- [Dj_database_url](https://pypi.org/project/dj-database-url/)<br>
-  To parse the database URL from the environment variables in Heroku
-- [Psycopg2](https://pypi.org/project/psycopg2/)<br>
-  As an adaptor for Python and PostgreSQL databases
-- [Summernote](https://summernote.org/)<br>
-  As a text editor
-- [Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)<br>
-  For authentication, registration, account
-  management
-- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)<br>
-  To style the forms
-- [Whitenoise](http://whitenoise.evans.io/en/stable/)<br>
-  For static CSS on Heroku
-- [Django Star Ratings](https://pypi.org/project/django-star-ratings/)<br>
-  For rating system on Cocktail Nerd
-- [PyTest](https://pytest-django.readthedocs.io/en/latest/)<br>
-  For automated functional testing with Selenium
-- [Selenium](https://www.selenium.dev/)<br>
-  For automated functional testing
+- [Axios](https://axios-http.com/docs/intro)<br>
+  As the HTTP client for the app.
+- [Material UI](https://mui.com/)<br>
+  Was used for certain compom=nents and icons.
+- [jwt-decode](https://www.npmjs.com/package/jwt-decode)<br>
+  To help decoding JWTs token which are Base64Url encoded.
+- [notistack](https://notistack.com/)<br>
+  It allows notifications to be stacked on top of one another.
+- [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component)<br>
+  A component to make the post load as an infinite scroll.
+- [zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)<br>
+  A small, fast and scalable bearbones state-management solution.
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)<br>
+  Bindings for using React Router in web applications.
+- [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom/)<br>
+  Testing Library that provides custom DOM element matchers for Jest.
 
 <h2 id="frameworks">Frameworks - Libraries - Programs Used</h2>
 
-- [Bootstrap](https://getbootstrap.com/)<br>
+- [React Bootstrap](https://react-bootstrap.github.io/)<br>
   Was used to style the website, add responsiveness and interactivity
-- [Jquery](https://jquery.com/)<br>
-  All the scripts were written using jquery library
 - [Git](https://git-scm.com/)<br>
   Git was used for version control by utilizing the Gitpod terminal to commit to Git and push to GitHub
 - [GitHub](https://github.com/)<br>
   GitHub is used to store the project's code after being pushed from Git
 - [Heroku](https://id.heroku.com)<br>
   Heroku was used to deploy the live project
-- [PostgreSQL](https://www.postgresql.org/)<br>
-  Database used through heroku.
 - [VSCode](https://code.visualstudio.com/)<br>
   VSCode was used to create and edit the website
 - [Lucidchart](https://lucid.app/)<br>
@@ -357,9 +331,9 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 ### This project was created on GitHub and Edited in GitPod by carrying out the following:
 
 <ol>
-    <li>A new repository was created using 'Code-Instutute-Org/python-essentials-template'</li>
+    <li>A new repository was created without a template</li>
     <li>A meaningful name was given to my new repository and I selected 'Create Repository'</li>
-    <li>I then opened the repository on GitHub and clicked the 'Gitpod' button to build the GitPod workspace which would allow me to build and edit the code used to make the <em>Cocktail Nerd</em> website.</li>
+    <li>I then opened the repository on GitHub and clicked the 'Gitpod' button to build the GitPod workspace which would allow me to build and edit the code used to make the <em>foodSNAP</em> app.</li>
     <li>Version control was used throughout the project using the following commands in the terminal using Bash
         <ul>
             <li>git add . <strong>OR</strong> git add "file name" - to stage the changes and get them ready for being committed to the local repo.</li> 
@@ -373,7 +347,7 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 
 ## Heroku
 
-The project was deployed via <a href="https://id.heroku.com/login" target="_blank">Heroku</a>, and the live link can be found here: <a href="https://project4-cocktail-nerd.herokuapp.com/" target="_blank">Cocktail Nerd</a>
+The project was deployed via <a href="https://id.heroku.com/login" target="_blank">Heroku</a>, and the live link can be found here: <a href="https://foodsnap-react.herokuapp.com/" target="_blank">foodSNAP</a>
 
 This project was developed utilising the <a href="https://github.com/Code-Institute-Org/python-essentials-template" target="_blank">Code Institute Template</a>. Some of the deployment steps below are specifically required for the new CI template and may not be applicable to older versions, or different projects.
 
@@ -474,7 +448,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 <ol>
     <li>Log in to your GitHub account</li>
-    <li>Navigate to the repository <a href="https://github.com/artcuddy/project4-cocktail-nerd" target="_blank"><strong>HERE</strong></a></li>
+    <li>Navigate to the repository <a href="https://github.com/artcuddy/project5-foodsnap-frontend" target="_blank"><strong>HERE</strong></a></li>
     <li>Select the 'Fork' button in the top right corner of the page (under your account image)</li>
     <li>The repo has now been copied into your own repos and you can work on it in your chosen IDE</li>
     <li>If you have any suggestions to make regards to the code to make the site better, you can put in a pull request</li>
@@ -484,7 +458,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 <ol>
     <li>Log in to your GitHub account</li>
-    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project4-cocktail-nerd" target="_blank"><strong>HERE</strong></a></li>
+    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project5-foodsnap-frontend" target="_blank"><strong>HERE</strong></a></li>
     <li>Select the 'Code' button above the file list on the right had side</li>
     <li>Ensure HTTPS is selected and click the clipboard on the right of the URL to copy it</li>
     <li>Open a new workspace in GitPod</li>
@@ -496,7 +470,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 <ol>
     <li>Log in to your GitHub account</li>
-    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project4-cocktail-nerd" target="_blank"><strong>HERE</strong></a></li>
+    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project5-foodsnap-frontend" target="_blank"><strong>HERE</strong></a></li>
     <li>Select the 'Code' button above the file list on the right had side</li>
     <li>Select 'Open with GitHub Desktop'</li>
     <li>If you haven't already installed GitHub desktop application - you will need to follow the relevant steps to do this</li>
@@ -507,7 +481,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 <ol>
     <li>Log in to your GitHub account</li>
-    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project4-cocktail-nerd" target="_blank"><strong>HERE</strong></a></li>
+    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project5-foodsnap-frontend" target="_blank"><strong>HERE</strong></a></li>
     <li>Select the 'Code' button above the file list on the right had side</li>
     <li>Select 'Download Zip'</li>
     <li>Once you have the Zip downloaded, open it with your prefered file decompression software</li>
@@ -519,17 +493,15 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 <a href="#top">Back to the top.</a>
 
-### I have listed some of the resources I used for inspiration and in researching how to create the Cocktail Nerd Website
+### I have listed some of the resources I used for inspiration and in researching how to create the foodSNAP app.
 
 - Building a blog application with Django <a href="https://djangocentral.com/building-a-blog-application-with-django/" target="_blank"><strong>HERE</strong></a>
 
-- Code Institute "I think therefore I blog" helped me setup the initial code for Cocktail Nerd.
+- Code Institute "Moments" helped me setup the initial code for foodSNAP.
 
-- All the cocktail receipes are from <a href="https://www.liquor.com/" target="_blank"><strong>Liquor.com</strong></a>
+- All the foodSNAP receipes are from <a href="https://www.bbcgoodfood.com/" target="_blank"><strong>BBC Good Food</strong></a>
 
 - All the header images are from <a href="https://unsplash.com/" target="_blank"><strong>Unsplash</strong></a>
-
-- Adding star rating to cocktails is from <a href="https://django-star-ratings.readthedocs.io/en/latest/?badge=latest/#" target="_blank"><strong>Django Star Ratings</strong></a>
 
 ### These are some of the resources that helped me solve some of the issues encountered when developing the site
 
@@ -549,4 +521,4 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 <a href="#top">Back to the top.</a>
 
-This project was made possible due to the help & advice from my Code Institute mentor Rohit, Code Institute Slack community, Stack Overflow community and a lot of extensive Googling and hair pulling if I had any.
+This project was made possible due to the help & advice from my Code Institute mentor Rohit, Code Institute Slack community, Stack Overflow community, my wife and family and a lot of extensive Googling.

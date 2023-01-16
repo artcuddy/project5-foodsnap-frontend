@@ -7,12 +7,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { CurrentUserProvider } from "./contexts/CurrentUserContext";
 import { ProfileDataProvider } from "./contexts/ProfileDataContext";
 import { AlertProvider } from "./contexts/AlertContext";
+import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.render(
   <Router>
     <AlertProvider>
       <CurrentUserProvider>
         <ProfileDataProvider>
+          <ScrollToTop />
           <App />
         </ProfileDataProvider>
       </CurrentUserProvider>
