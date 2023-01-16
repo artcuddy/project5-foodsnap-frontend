@@ -17,7 +17,6 @@ import FloatingActionButton from "./FloatingActionButton";
 import AlertPopup from "../components/AlertPopup";
 import useAlert from "../hooks/useAlert";
 
-
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -30,7 +29,7 @@ const NavBar = () => {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
       removeTokenTimestamp();
-       setAlert("You have logged out succesfully!", "success");
+      setAlert("You have logged out succesfully!", "success");
     } catch (err) {
       // console.log(err);
       setAlert(err.message, "error");
@@ -39,13 +38,13 @@ const NavBar = () => {
 
   const addPostIcon = (
     <>
-    <NavLink
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-      to="/posts/create"
-    > 
-      <FloatingActionButton />
-    </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/posts/create"
+      >
+        <FloatingActionButton />
+      </NavLink>
     </>
   );
   const loggedInIcons = (
@@ -55,14 +54,14 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/feed"
       >
-        <i className="fa-solid fa-list"></i> Feed
+        <i className="fa-solid fa-bars-staggered"></i> Feed
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/liked"
       >
-        <i className="fas fa-heart"></i> Liked
+        <i className="fa-solid fa-heart"></i> Liked
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i> Sign out
@@ -71,7 +70,11 @@ const NavBar = () => {
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
-        <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={30} />
+        <Avatar
+          src={currentUser?.profile_image}
+          text={currentUser?.username}
+          height={30}
+        />
       </NavLink>
     </>
   );

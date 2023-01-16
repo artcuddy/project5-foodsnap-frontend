@@ -7,7 +7,10 @@
     padding: 10px;
 }
 
-.Active {
-    color: #6a6a6a;;
+.Active i{
+    color: #6a6a6a;
 }
 
+i {
+    color:#000;
+}
