@@ -1,7 +1,7 @@
 <a id="top" href="https://enigma-code-breaker.herokuapp.com/" target="_blank"><img src="documentation/readme_images/logo-white.webp"></a><br />
 
 <h2>Upload your foodSnaps and share them with your friends.<br />
-Find great recipes to try that your friends have uploaded!!!</h2>
+Find great recipes to try that your friends have uploaded!</h2>
 
 <h1 id="contents">Contents</h1>
 
@@ -19,14 +19,10 @@ Find great recipes to try that your friends have uploaded!!!</h2>
   - [Homepage](#homepage)
   - [Navigation Desktop](#navigation-desktop)
   - [Navigation Mobile](#navigation-mobile)
-  - [foodSNAP Recipe Details](#cocktail-recipe-details)
-  - [Cocktail Recipe Sidebar](#cocktail-recipe-sidebar)
-  - [Liked Cocktails](#liked-cocktails)
-  - [All Cocktails](#all-cocktails)
-  - [All Spirit Categories](#all-spirit-categories)
-  - [Filter Categories](#filter-cocktails)
+  - [foodSNAP Recipe Details](#foodsnap-recipe-details)
+  - [foodSNAP Recipe Sidebar](#foodsnap-recipe-sidebar)
+  - [Liked foodSNAPS](#liked-foodsnaps)
   - [Search Results](#search-results)
-  - [Admin Frontend](#admin-frontend)
   - [Future Features](#future-features)
 - [Technologies](#technologies)
   - [Languages](#languages)
@@ -207,7 +203,7 @@ Initial Wireframes
 
 <img src="documentation/screenshots/add-comment.webp">
 
-<h2 id="cocktail-recipe-sidebar">foodSnap Sidebar</h2>
+<h2 id="foodsnap-recipe-sidebar">foodSnap Sidebar</h2>
 
 <a href="#top">Back to the top.</a>
 
@@ -221,41 +217,13 @@ Initial Wireframes
 
 <img src="documentation/screenshots/popular-foodsnaps.webp">
 
-<h2 id="liked-cocktails">Liked foodSNAPS</h2>
+<h2 id="liked-foodsnaps">Liked foodSNAPS</h2>
 
 <a href="#top">Back to the top.</a>
 
 - When an authenticated user likes a foodSNAP this will be added to their liked posts page which can be accessed by clicking on the liked icon on the navbar.
 
 <img src="documentation/readme_images/screenshots/liked-cocktails.webp">
-
-<h2 id="all-cocktails">All Cocktails</h2>
-
-<a href="#top">Back to the top.</a>
-
-- To see all cocktails on a paginated page click the cocktails menu or button on the homepage
-
-<img src="documentation/readme_images/screenshots/all-cocktails.webp">
-
-<h2 id="all-spirit-categories">All Spirit Categories</h2>
-
-<a href="#top">Back to the top.</a>
-
-- To see all the spirit categories on a paginated page click the Spirits menu in the navbar
-
-<img src="documentation/readme_images/screenshots/all-categories.webp">
-
-<h2 id="filter-cocktails">Filter Cocktails by Spirit Category</h2>
-
-<a href="#top">Back to the top.</a>
-
-- To filter all cocktails by spirit on a paginated page click the by Spirit menu in the navbar and select the spirit category
-
-<img src="documentation/readme_images/screenshots/navbar/dropdown-nav-menu.webp">
-
-- All cocktails by spirit category this one displays all the Whiskey Cocktails
-
-<img src="documentation/readme_images/screenshots/category.webp">
 
 <h2 id="search-results">Search Results</h2>
 
