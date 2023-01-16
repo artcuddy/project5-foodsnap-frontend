@@ -89,7 +89,6 @@ function PostCreateForm() {
           {message}
         </Alert>
       ))}
-
       <Form.Group>
         <Form.Label className={styles.FormTitle}>Description</Form.Label>
         <Form.Control
