@@ -19,7 +19,6 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import PopularPosts from "./PopularPosts";
-import useAlert from "../../hooks/useAlert";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -28,7 +27,6 @@ function PostsPage({ message, filter = "" }) {
   const currentUser = useCurrentUser();
 
   const [query, setQuery] = useState("");
-  const { setAlert } = useAlert();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -38,7 +36,6 @@ function PostsPage({ message, filter = "" }) {
         setHasLoaded(true);
       } catch (err) {
         // console.log(err);
-        setAlert(err.message, "error");
       }
     };
 
@@ -50,7 +47,7 @@ function PostsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname, currentUser, setAlert]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row className="h-100">
@@ -58,10 +55,7 @@ function PostsPage({ message, filter = "" }) {
         <PopularProfiles mobile />
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         {!query ? (
-          <i
-            className={styles.CloseIcon}
-            onClick={() => setQuery("")}
-          />
+          <i className={styles.CloseIcon} onClick={() => setQuery("")} />
         ) : (
           <i
             className={`fa-solid fa-xmark ${styles.CloseIcon}`}
