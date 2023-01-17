@@ -11,10 +11,10 @@ import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.render(
   <Router>
+    <ScrollToTop />
     <AlertProvider>
       <CurrentUserProvider>
         <ProfileDataProvider>
-          <ScrollToTop />
           <App />
         </ProfileDataProvider>
       </CurrentUserProvider>
