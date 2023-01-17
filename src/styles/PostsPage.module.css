@@ -18,6 +18,18 @@
     color: #cfced3;
 }
 
+.CloseIcon {
+    position: absolute;
+    font-size: 1.5rem;
+    padding: 9px;
+    right: 15px;
+}
+
+.CloseIcon:hover {
+    cursor: default;
+    color: #cfced3;
+}
+
 .NoComment {
     align-items: center;
 }

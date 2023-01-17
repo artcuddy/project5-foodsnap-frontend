@@ -62,7 +62,6 @@ const Post = (props) => {
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
-      setAlert("foodSnap liked!", "success");
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -71,8 +70,8 @@ const Post = (props) => {
             : post;
         }),
       }));
+      setAlert("foodSNAP liked!", "success");
     } catch (err) {
-      // console.log(err);
       setAlert(err.message, "error");
     }
   };
@@ -80,7 +79,6 @@ const Post = (props) => {
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
-      setAlert("foodSnap unliked!", "success");
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -89,8 +87,8 @@ const Post = (props) => {
             : post;
         }),
       }));
+      setAlert("foodSNAP unliked!", "success");
     } catch (err) {
-      // console.log(err);
       setAlert(err.message, "error");
     }
   };
@@ -107,7 +105,7 @@ const Post = (props) => {
 
     const timer = setTimeout(() => {
       fetchRecipes();
-    }, 1000);
+    }, 500);
 
     return () => {
       clearTimeout(timer);
@@ -149,7 +147,7 @@ const Post = (props) => {
           <div className={styles.Heart}>
             {is_owner ? (
               <Tooltip
-                title="You can't like your own post!"
+                title="You can't like your own foodSNAP!"
                 placement="top"
                 arrow
               >

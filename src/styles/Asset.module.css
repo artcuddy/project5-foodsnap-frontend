@@ -10,6 +10,7 @@
 .Message {
     font-weight: 900;
     margin-top: 16px;
+    text-align: center;
 }
 
 .Image {
