@@ -48,7 +48,7 @@ const UserPasswordForm = () => {
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       history.goBack();
-      setAlert("Password edited!", "success");
+      setAlert("Password updated!", "success");
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);

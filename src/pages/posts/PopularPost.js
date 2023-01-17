@@ -11,7 +11,7 @@ const PopularPost = (props) => {
   return (
     <Card className={`${styles.Post} ${appStyles.BoxShadow}`}>
       <Link to={`/posts/${id}`}>
-        <Card.Img src={image} alt={title} />
+        <Card.Img className={appStyles.ImageHover} src={image} alt={title} />
       </Link>
       <Fab
         className={styles.Circle}
@@ -23,7 +23,11 @@ const PopularPost = (props) => {
         <div className={styles.CountNumber}>{likes_count} likes</div>
       </Fab>
       <Card.Body className={styles.Card}>
-        {title && <Card.Title className={`${styles.Title} ${"text-center"}`}>{title}</Card.Title>}
+        {title && (
+          <Card.Title className={`${styles.Title} ${"text-center"}`}>
+            {title}
+          </Card.Title>
+        )}
       </Card.Body>
     </Card>
   );

@@ -79,7 +79,7 @@ const ProfileEditForm = () => {
         profile_image: data.image,
       }));
       history.goBack();
-      setAlert("Profile edited!", "success");
+      setAlert("Profile updated!", "success");
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
@@ -123,7 +123,7 @@ const ProfileEditForm = () => {
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
-          <Container className={appStyles.Content}>
+          <Container className={`${appStyles.Content} ${appStyles.Margin}`}>
             <Form.Group>
               {image && (
                 <figure>
