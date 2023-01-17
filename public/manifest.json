@@ -1,5 +1,5 @@
 {
-  "short_name": "foodSnap",
+  "short_name": "foodSNAP",
   "name": "foodSNAP upload and share your favourite recipes",
   "icons": [
     {
@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "foodSnap-logo-192x192.png",
+      "src": "foodsnap-logo-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "foodSnap-logo-512x512.png",
+      "src": "foodsnap-logo-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
