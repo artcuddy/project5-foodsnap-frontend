@@ -65,6 +65,7 @@ function PostPage() {
           ) : null}
           {comments.results.length ? (
             <InfiniteScroll
+              // eslint-disable-next-line react/no-children-prop
               children={comments.results.map((comment) => (
                 <Comment
                   key={comment.id}

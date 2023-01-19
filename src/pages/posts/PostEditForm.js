@@ -65,6 +65,7 @@ function PostEditForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // eslint-disable-next-line no-undef
     const formData = new FormData();
 
     formData.append("title", title);

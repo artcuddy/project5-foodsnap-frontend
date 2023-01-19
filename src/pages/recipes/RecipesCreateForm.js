@@ -6,9 +6,7 @@ import styles from "../../styles/RecipesCreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 import useAlert from "../../hooks/useAlert";
 
-
 function RecipeCreateForm(props) {
-
   const { post, setRecipes } = props;
   const [ingredients, setIngredients] = useState("");
   const [method, setMethod] = useState("");
@@ -52,24 +50,24 @@ function RecipeCreateForm(props) {
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
-          <Form.Control
-            className={styles.Form}
-            placeholder="Ingredients"
-            as="textarea"
-            name="ingredients"
-            value={ingredients}
-            onChange={handleIngredients}
-            rows={4}
-          />
-               <Form.Control
-            className={styles.Form}
-            placeholder="Method"
-            name="method"
-            as="textarea"
-            value={method}
-            onChange={handleMethod}
-            rows={4}
-          />
+        <Form.Control
+          className={styles.Form}
+          placeholder="Ingredients"
+          as="textarea"
+          name="ingredients"
+          value={ingredients}
+          onChange={handleIngredients}
+          rows={4}
+        />
+        <Form.Control
+          className={styles.Form}
+          placeholder="Method"
+          name="method"
+          as="textarea"
+          value={method}
+          onChange={handleMethod}
+          rows={4}
+        />
       </Form.Group>
       <button
         className={`${styles.Button} btn d-block ml-auto`}

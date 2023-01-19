@@ -10,8 +10,6 @@ import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import PasswordIcon from "@mui/icons-material/Password";
 import { confirmDialog } from "../components/ConfirmDialog";
 
-// The forwardRef is important!!
-// Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <IconButton
     aria-label="settings"
@@ -56,7 +54,6 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
     </Dropdown>
   );
 };
-
 
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();

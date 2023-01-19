@@ -10,13 +10,9 @@ const FixedFooterNavigation = () => {
   const currentUser = useCurrentUser();
 
   const loggedOutBar = (
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/"
-      >
-        <HomeOutlinedIcon /> Home
-      </NavLink>
+    <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/">
+      <HomeOutlinedIcon /> Home
+    </NavLink>
   );
 
   const loggedInBar = (
