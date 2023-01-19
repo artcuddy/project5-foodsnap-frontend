@@ -31,7 +31,7 @@ Follow other users & find great recipes to try out that they have uploaded to fo
     -   [React Packages](#react-packages)
     -   [Frameworks & Libraries](#frameworks)
 -   [Development & Testing](#testing)
-    -   [Database](#database)
+    -   [React Component Diagram](#component-diagram)
     -   [Testing Results Automated & Manual](TESTING.md)
 -   [Deployment](#deployment)
 -   [Credits](#credits)
@@ -365,6 +365,13 @@ Throughout the planning, design, testing and deployment of the foodSNAP app , I 
 <h1 id="testing">Development & Testing</h1>
 
 <a href="#top">Back to the top.</a>
+
+<h2 id="component-diagram">React Component Diagram</h2>
+
+-   Here I have explained the flow of data through out the foodSNAP app
+
+![Component Diagram](documentation/wireframes/foodsnap-flowchart.webp)
+
 
 <h2 id="testing-results">Automated Testing Results</h2>
 
