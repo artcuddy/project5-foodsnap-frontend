@@ -13,6 +13,7 @@ export const fetchMoreData = async (resource, setResource) => {
           : [...acc, cur];
       }, prevResource.results),
     }));
+    // eslint-disable-next-line no-empty
   } catch (err) {}
 };
 
