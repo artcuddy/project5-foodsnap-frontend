@@ -22,7 +22,8 @@
     "react-scripts": "^5.0.1",
     "shell-quote": ">=1.7.3",
     "web-vitals": "^1.1.2",
-    "zustand": "^4.3.1"
+    "zustand": "^4.3.1",
+    "nth-check": ">=2.0.1"
   },
   "scripts": {
     "heroku-prebuild": "npm install -g serve",
