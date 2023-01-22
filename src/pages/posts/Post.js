@@ -183,7 +183,7 @@ const Post = (props) => {
             {likes_count}
           </div>
           <div className={styles.Comments}>
-            <Link to={`/posts/${id}`} aria-labelledby="Click to view comments">
+            <Link to={`/posts/${id}`} aria-labelledby={title}>
               <ChatBubbleOutlineOutlinedIcon />
             </Link>
             {comments_count}
