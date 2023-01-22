@@ -11,8 +11,10 @@
 }
 
 .ProfileContent {
-    font-size: 1em;
+    font-size: 1.2em;
     padding-bottom: 32px;
+    margin-top: 32px;
+    font-weight: 600;
 }
 
 .CountNumber{
