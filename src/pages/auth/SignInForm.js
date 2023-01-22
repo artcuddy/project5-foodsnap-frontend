@@ -42,7 +42,7 @@ function SignInForm() {
       setCurrentUser(data.user);
       setTokenTimestamp(data);
       history.goBack();
-      setAlert("You have logged in succesfully!", "success");
+      setAlert(`${username} you have logged in succesfully!`, "success");
     } catch (err) {
       setErrors(err.response?.data);
     }

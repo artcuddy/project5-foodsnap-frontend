@@ -378,10 +378,6 @@ Throughout the planning, design, testing and deployment of the foodSNAP app , I 
 
 -   Automated Testing results [here](TESTING.md)
 
-<h2 id="testing-results">Functional Automated Testing Results</h2>
-
--   Functional Automated Testing results [here](TESTING.md)
-
 <h2 id="testing-results">Manual Testing Results</h2>
 
 -   Manual Testing results [here](TESTING.md)
