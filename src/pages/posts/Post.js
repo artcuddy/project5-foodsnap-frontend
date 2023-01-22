@@ -183,7 +183,7 @@ const Post = (props) => {
             {likes_count}
           </div>
           <div className={styles.Comments}>
-            <Link to={`/posts/${id}`} aria-labelledby={title}>
+            <Link to={`/posts/${id}`} aria-label={title}>
               <ChatBubbleOutlineOutlinedIcon />
             </Link>
             {comments_count}
@@ -204,7 +204,7 @@ const Post = (props) => {
             </Tooltip>
           ) : recipes.results.length && !currentUser ? (
             <Tooltip title="Login to view the recipe" placement="bottom" arrow>
-              <Link to={"/signin"} aria-labelledby="Click to sign in">
+              <Link to={"/signin"} aria-label="Click to sign in">
                 <div className={styles.Recipes}>
                   <RestaurantMenuOutlinedIcon className={styles.Recipes} />
                   Login for Recipe
