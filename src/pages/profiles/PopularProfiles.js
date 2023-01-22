@@ -38,7 +38,8 @@ const PopularProfiles = ({ mobile }) => {
             </div>
           ) : (
             popularProfiles.results
-              .filter((profile) => profile.followers_count >= 2)
+              .slice(0, 6)
+              .filter((profile) => profile.followers_count >= 1)
               .map((profile) => <Profile key={profile.id} profile={profile} />)
           )}
         </>

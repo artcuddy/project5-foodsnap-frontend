@@ -24,7 +24,7 @@ Follow other users & find great recipes to try out that they have uploaded to fo
     -   [foodSNAP Feed](#feed)
     -   [Liked foodSNAPS](#liked-foodsnaps)
     -   [Search Results](#search-results)
-    -   [Profile](#profile)
+    -   [foodSNAP Profile](#profile)
     -   [Future Features](#future-features)
 -   [Technologies](#technologies)
     -   [Languages](#languages)
@@ -217,7 +217,7 @@ Initial Wireframes
 
 <a href="#top">Back to the top.</a>
 
--   The sidebar displays the top 5 followed foodSNAPPERS with 2 or more followers and below that the 4 top liked foodSNAPS with 2 or more likes.
+-   The sidebar displays the top 6 followed foodSNAPPERS with 1 or more followers and below that the 4 top liked foodSNAPS with 2 or more likes.
 
 -   You can also follow or unfollow a foodSNAPPER here.
 
@@ -231,13 +231,13 @@ Initial Wireframes
 
 <img src="documentation/screenshots/popular-foodsnaps.webp">
 
-<h2 id="feed">Feed Follwed foodSNAPPERS</h2>
+<h2 id="feed">Feed Followed foodSNAPPERS</h2>
 
 <a href="#top">Back to the top.</a>
 
 -   When an authenticated user follows a foodSNAPPER this will be added to their feed page which can be accessed by clicking on the feed icon on the navbar.
 
--  If the user has not followed anyone a message will appear to follow a user.
+-   If the user has not followed anyone a message will appear to follow a user.
 
 <img src="documentation/screenshots/feedresults.webp">
 
@@ -247,7 +247,7 @@ Initial Wireframes
 
 -   When an authenticated user likes a foodSNAP this will be added to their liked foodSNAPS page which can be accessed by clicking on the heart liked icon on the navbar.
 
--  If the user has not liked any foodSNAPS a message will appear to like a foodSNAP first.
+-   If the user has not liked any foodSNAPS a message will appear to like a foodSNAP first.
 
 <img src="documentation/screenshots/likedresults.webp">
 
@@ -255,35 +255,35 @@ Initial Wireframes
 
 <a href="#top">Back to the top.</a>
 
--  Enter a search word in the search box and click enter the search results will be displayed filterd by the search word.
+-   Enter a search word in the search box and click enter the search results will be displayed filterd by the search word.
 
--  The search is performed on the foodSNAP title & the username fields.
+-   The search is performed on the foodSNAP title & the username fields.
 
--  Once you start typing a X appears on the right hand side and if clicked this clears the search bar.
+-   Once you start typing a X appears on the right hand side and if clicked this clears the search bar.
 
 <img src="documentation/screenshots/searchresults.webp">
 
 <h2 id="profile">Profile</h2>
 
--  On the profile page the user can view all the foodSNAPS they have created.
+-   On the profile page the user can view all the foodSNAPS they have created.
 
--  This can be accessed by clicking on the profile image on the top right of the navbar.
+-   This can be accessed by clicking on the profile image on the top right of the navbar.
 
--  The user can also see how many foodSNAPS they have liked and how many foodSNAPPERS they folllow.
+-   The user can also see how many foodSNAPS they have liked and how many foodSNAPPERS they folllow.
 
--  If the user is the owner of the profile they can edit their profile by clicking on the 3 dots.
+-   If the user is the owner of the profile they can edit their profile by clicking on the 3 dots.
 
 <img src="documentation/screenshots/profile.webp">
 
-- You can change the image and your bio here.
+-   You can change the image and your bio here.
 
 <img src="documentation/screenshots/profile-edit.webp">
 
-- You can change your username here.
+-   You can change your username here.
 
 <img src="documentation/screenshots/profile-username.webp">
 
-- You can change your password here.
+-   You can change your password here.
 
 <img src="documentation/screenshots/profile-password.webp">
 
@@ -337,6 +337,8 @@ Throughout the planning, design, testing and deployment of the foodSNAP app , I 
 
 <h2 id="frameworks">Frameworks - Libraries - Programs Used</h2>
 
+-   [ElephantSQL](https://www.elephantsql.com/)<br>
+    ElephantSQL is a PostgreSQL database hosting service were the database for foodSNAP was created
 -   [Git](https://git-scm.com/)<br>
     Git was used for version control by utilizing the Gitpod terminal to commit to Git and push to GitHub
 -   [GitHub](https://github.com/)<br>
@@ -371,7 +373,6 @@ Throughout the planning, design, testing and deployment of the foodSNAP app , I 
 -   Here I have explained the flow of data through out the foodSNAP app
 
 ![Component Diagram](documentation/wireframes/foodsnap-flowchart.webp)
-
 
 <h2 id="testing-results">Automated Testing Results</h2>
 
@@ -412,7 +413,7 @@ The project was deployed via <a href="https://id.heroku.com/login" target="_blan
 
 Some of the deployment steps below are specifically required for this project and may not be applicable to older versions, or different projects.
 
-Before deploying to Heroku pip3 freeze > requirements.txt was used to add all dependencies for deployment and created the Procfile with web: serve -s build
+Before deploying to Heroku I created the Procfile with web: serve -s build
 
 Created .slugignore with /documentation, README.md & TESTING.md as paths to ignore in Heroku as I don't want the documentation to upload to Heroku.
 
@@ -426,15 +427,11 @@ This project was deployed to Heroku using the Heroku CLI details below
     To get the API key go to your account settings and scroll down to the section ‘API
     Key’. Click reveal and copy that, then paste it into the password prompt.
 
-<img src="documentation/readme_images/screenshots/heroku-login-cli.jpg"><br><br>
-
 -   Creating A Heroku App
     Now that you are logged in, the first thing is to create a new app. Heroku creates a
     URL based on your app name, so it must be unique not only on your account, but
     across the whole site. You may need to try a few different names. To create an app
     use the following command, where myapp is the name of your app.
-
-<img src="documentation/readme_images/screenshots/creating-heroku-app.jpg"><br><br>
 
 -   Here the app heroku-cli-example has been created with an output of the website
     URL. It also displays and sets the git remote repository which will be used to deploy.
@@ -453,12 +450,8 @@ This project was deployed to Heroku using the Heroku CLI details below
 
 ## Deployment Steps On Heroku.
 
--   Run this command pip3 install pip3 install 'django<4' to install django.
--   Added these libraries:pip3 install dj_database_url psycopg2,pip3 install dj3-cloudinary-storage
--   Created requirements.txt file where I can save all the libraries I've installed:pip3 freeze --local > requirements.txt
--   To create my project typed this command:django-admin startproject cocktailnerd
--   To create my app:python3 manage.py startapp cocktailapp
--   To make this app work, Into the setting.py file inside INSTALLED_APPS added cocktailapp
+-   Run this command npx create-react-app foodSNAP --use-npm to create the app.
+-   To start foodSNAP npm start
 -   To migrate changes typed this command:python3 manage.py migrate
 -   To run the test if the project is working python3 manage.py runserver
 -   When deploying for the first time on Heroku, you must first register with Heroku.
