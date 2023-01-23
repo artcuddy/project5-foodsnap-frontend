@@ -135,8 +135,8 @@ The code now validates with ESLint
 
 ![W3C CSS Validation Result](documentation/testing/css-validation.webp)
 
--   Custom CSS was validated using W3C Jigsaw validation service. One warning was displayed, however,
-    this is related to Bootstrap 5 which will not affect the CSS performance.
+-   Custom CSS was validated using W3C Jigsaw validation service. Warings were displayed however,
+    this is related to React Bootstrap 5 which will not affect the CSS performance.
 
 <h1 id="console-results">Console Results</h1>
 

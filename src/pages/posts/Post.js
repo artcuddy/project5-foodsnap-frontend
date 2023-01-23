@@ -62,7 +62,7 @@ const Post = (props) => {
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
-      setAlert("foodSNAP liked!", "success");
+      setAlert("Thanks you liked this foodSNAP!", "success");
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -83,7 +83,7 @@ const Post = (props) => {
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
-      setAlert("foodSNAP unliked!", "success");
+      setAlert("What a shame you have unliked this foodSNAP", "success");
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
