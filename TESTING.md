@@ -129,11 +129,11 @@ The code now validates with ESLint
 
 <h1 id="html-validation">HTML Validation</h1>
 
-![HTML Validation Result](documentation/testing/html-validator-results.webp)
+![HTML Validation Result](documentation/testing/html-validation.webp)
 
 <h1 id="css-validation">CSS Validation</h1>
 
-![W3C CSS Validation Result](documentation/testing/css-validator-results.webp)
+![W3C CSS Validation Result](documentation/testing/css-validation.webp)
 
 -   Custom CSS was validated using W3C Jigsaw validation service. One warning was displayed, however,
     this is related to Bootstrap 5 which will not affect the CSS performance.
