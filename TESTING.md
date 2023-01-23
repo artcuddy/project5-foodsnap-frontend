@@ -28,22 +28,21 @@ Testing has taken place continuously throughout the development of the project. 
 
 <a href="#top">Back to the top</a>
 
-<details><summary>Click here to expand: Manual Test Case</summary>
-
-![Manual Test Case](documentation/readme_images/testing/cocktail-nerd-manual-testing.webp)
-
-</details>
+![Manual Test Case](documentation/testing/manual-testing.webp)
 
 <br/>
 The online version of the Manual Functional Test Case can be found here <a href="https://docs.google.com/spreadsheets/d/1httv3Y2IJjzV_sj7WBncre5ICvjTv1ODlphDvt8Yrj8/edit#gid=0" target="_blank">**HERE**</a><br>
 
+<br/>
 <h1 id="automated-testing">Automated Unit Testing Results</h1>
 
 ### Before Automated Unit testing coverage was at 79%
 
 <br />
 
-<h1 id="html-validation">Messaging / Alerts</h1>
+<h1 id="messaging">Messaging / Alerts</h1>
+
+<a href="#top">Back to the top</a>
 
 <h2>Authentication</h2>
 
@@ -111,7 +110,9 @@ The online version of the Manual Functional Test Case can be found here <a href=
 ![Created](documentation/messaging/unliked.webp)
 
 
-<h1 id="html-validation">ESLint Validation</h1>
+<h1 id="eslint-validation">ESLint Validation</h1>
+
+<a href="#top">Back to the top</a>
 
 All validation fixes recommended by ESLint were fixed and the follwing rules added to the .eslintrc.json configuration file.
 The code now validates with ESLint
@@ -167,6 +168,8 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 ![Mobile results](documentation/testing/lighthouse-mobile.webp)
 
 <h1 id="bugs">Bugs / Issues</h1>
+
+<a href="#top">Back to the top</a>
 
 The following bugs where found and fixed during the development process no further bugs have been discovered to date.
 
