@@ -64,7 +64,7 @@ function PostCreateForm() {
     try {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
-      setAlert("foodSnap created!", "success");
+      setAlert("foodSNAP created successfully!", "success");
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {

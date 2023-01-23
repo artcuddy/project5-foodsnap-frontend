@@ -111,7 +111,21 @@ The online version of the Manual Functional Test Case can be found here <a href=
 ![Created](documentation/messaging/unliked.webp)
 
 
+<h1 id="html-validation">ESLint Validation</h1>
 
+All validation fixes recommended by ESLint were fixed and the follwing rules added to the .eslintrc.json configuration file.
+The code now validates with ESLint
+
+```
+ "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "req|res|next|__" }],
+    "allowEmptyCatch": 0,
+    "no-undef": "off",
+    "react/display-name": "off"
+    }
+```
 
 <h1 id="html-validation">HTML Validation</h1>
 

@@ -218,6 +218,10 @@ Initial Wireframes
 
 <img src="documentation/screenshots/add-recipe.webp">
 
+-   Recipe added 
+
+<img src="documentation/screenshots/recipe.webp">
+
 -   Add comment
 
 <img src="documentation/screenshots/add-comment.webp">

@@ -78,7 +78,7 @@ function PostEditForm() {
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
-      setAlert("foodSnap edited!", "success");
+      setAlert("foodSNAP edited successfully!", "success");
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
