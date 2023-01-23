@@ -305,6 +305,8 @@ Initial Wireframes
 -   Social login to allow the user to signup using Facebook or Google.
 
 -   Allowing users to share their foodSNAPS with other foodSNAP users.
+<a href="https://github.com/artcuddy/project5-foodsnap-frontend/issues/8">Github Issue #8</a>
+
 
 <h1 id="technologies">Technologies</h1>
 

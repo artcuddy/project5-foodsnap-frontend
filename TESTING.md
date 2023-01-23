@@ -154,19 +154,25 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 <h1 id="bugs">Bugs / Issues</h1>
 
-The following bugs where found and fixed during the development process ni further bugs have been dicovered to date.
+The following bugs where found and fixed during the development process no further bugs have been discovered to date.
 
 BUG: When a user navigates to a new page the page scroll depth stays the same user is not scrolled to the top of the new page
 <br />
 <a href="https://github.com/artcuddy/project5-foodsnap-frontend/issues/16">Github Issue #16</a>
 
+-  Found a solution here https://v5.reactrouter.com/web/guides/scroll-restoration and implemented this tested and scroll to top on navigation works fine when going forward but also scroll to top on navigating backward
+
 BUG: When a user navigates back to the previous page the page scrolls to the top with ScrollToTop enabled.
 <br />
 <a href="https://github.com/artcuddy/project5-foodsnap-frontend/issues/17">Github Issue #17</a>
 
+-  Found a solution here https://www.kindacode.com/article/react-router-dom-scroll-to-top-on-route-change/ to stop the scroll to top happening on back navigation using POP
+
 BUG: The post page refreshes 3 times when a user likes a post.
 <br />
 <a href="https://github.com/artcuddy/project5-foodsnap-frontend/issues/18">Github Issue #18</a>
+
+-  I had accidentally added an alert to a useEffect statement which caused the page to refresh on post like, removed this to sort the issue
 
 
 
