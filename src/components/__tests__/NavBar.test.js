@@ -24,7 +24,7 @@ test("renders link to the user profile for a logged in user", async () => {
     </Router>
   );
 
-  const profileAvatar = await screen.findByText("Profile");
+  const profileAvatar = await screen.findByText("paul");
   expect(profileAvatar).toBeInTheDocument();
 });
 
@@ -37,11 +37,11 @@ test("renders Sign in and Sign up buttons again on log out", async () => {
     </Router>
   );
 
-  const signOutLink = await screen.findByText("link", { name: "Sign out" });
+  const signOutLink = await screen.findByText("Sign out", { name: "Sign out" });
   fireEvent.click(signOutLink);
 
-  const signInLink = await screen.findByText("link", { name: "Sign in" });
-  const signUpLink = await screen.findByText("link", { name: "Sign up" });
+  const signInLink = await screen.findByText("Sign in", { name: "Sign in" });
+  const signUpLink = await screen.findByText("Sign up", { name: "Sign up" });
 
   expect(signInLink).toBeInTheDocument();
   expect(signUpLink).toBeInTheDocument();
