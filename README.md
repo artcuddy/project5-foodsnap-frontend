@@ -6,6 +6,8 @@ Follow other users & find great recipes to try out that they have uploaded to fo
 <h1 id="contents">Contents</h1>
 
 -   [Introduction](#introduction)
+-   [Live Site](#demo)
+    -   [Backend API repository](#demo)
 -   [User Experience - UX](#user-experience)
     -   [User Stories](#user-stories)
     -   [Agile Methodology](#agile-methodology)
@@ -43,7 +45,12 @@ Project Milestone 5 for Code Institute Full-stack development program. foodSNAP 
 The site allows users to upload foodSNAPS then edit posts, comments and recipes from the frontend once registered & logged in.
 
 <h1 id="demo">Live Site</h1>
-A live version of the site can be found <a href="https://foodsnap-react.herokuapp.com/" target="_blank">**HERE**</a><br><br>
+A live version of the site can be found <a href="https://foodsnap-react.herokuapp.com/" target="_blank">HERE</a><br><br>
+
+
+The backend API repository can be found <a href="https://github.com/artcuddy/project5-foodsnap-backend" target="_blank">HERE </a><br><br>
+
+
 <img src="documentation/screenshots/foodsnap-responsive.webp"><br><br>
 
 <h1 id="user-experience">User Experience - UX</h1>
@@ -151,7 +158,7 @@ Initial Wireframes
 
 <h2 id="homepage">Homepage</h2>
 
--   The Home Page is the landing page of the website and that's visible first when the site loads. It is designed to allow the user to quickly find their way around the site. The homepage displays all foodSNAPS in chronological order and the sidebar displays the top followed foodSNAPPER's and below that the top liked foodSNAPS.
+-   The Home Page is the landing page of the website and that's visible first when the site loads. It is designed to allow the user to quickly find their way around the site. The homepage displays all foodSNAPS in chronological order by lateset first and the sidebar displays the top followed foodSNAPPER's and below that the top liked foodSNAPS.
 
 <img src="documentation/screenshots/homepage.webp">
 
@@ -197,6 +204,8 @@ Initial Wireframes
 
 -   When an authenticated user is logged in they can upload, create, edit, like, comment & add a recipe on the foodSNAP detail page.
 
+-   A tooltip displays extra info to the user regarding the button functionaliity.
+
 -   Create foodSNAP
 
 <img src="documentation/screenshots/add-post.webp">
@@ -225,7 +234,7 @@ Initial Wireframes
 
 <img src="documentation/screenshots/popular-users.webp">
 
--   Below the top 5 followed foodSNAPPERS the sidebar displays the 4 top liked foodSNAPS with 2 or more likes in decending order.
+-   Below the top 6 followed foodSNAPPERS the sidebar displays the 4 top liked foodSNAPS with 2 or more likes in decending order.
 
 -   Popular foodSNAPS
 
@@ -370,7 +379,6 @@ Throughout the planning, design, testing and deployment of the foodSNAP app , I 
 
 <h2 id="component-diagram">React Component Diagram</h2>
 
--   Here I have explained the flow of data through out the foodSNAP app
 
 ![Component Diagram](documentation/wireframes/foodsnap-flowchart.webp)
 
@@ -446,47 +454,19 @@ This project was deployed to Heroku using the Heroku CLI details below
 
 ## Deployment Steps On Heroku.
 
--   Run this command npx create-react-app foodSNAP --use-npm to create the app.
--   To start foodSNAP npm start
--   To migrate changes typed this command:python3 manage.py migrate
--   To run the test if the project is working python3 manage.py runserver
--   When deploying for the first time on Heroku, you must first register with Heroku.
--   Create your project name and location.
--   To add Database into the app, Locate in the Resources Tab, Add-ons, search and add 'Heroku Postgres'
--   Copy DATABASE_URL value, by going into the Settings Tab, click reveal Config Vars, Copy Text
--   In your workspace Create new env.py file.
--   Import os library:import os
--   Set environment variables:os.environ["DATABASE_URL"] = "Heroku DATABASE_URL"
--   Add in secret key:os.environ["SECRET_KEY"] = "mysecretkey"
--   Add Secret Key to Config Vars in Heroku settings:SECRET_KEY, "mysecretkey"
--   Add env.py file to the settings.py file:import osimport dj_database_urlif os.path.isfile("env.py"):import env
--   Remove the insecure secret key and replace - links to the SECRET_KEY variable on Heroku:SECRET_KEY = os.environ.get('SECRET_KEY')
--   Comment out the old DATABASES variable in setting.py file and add this instead:DATABASES = { 'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
--   Save all files and Make Migrations:python3 manage.py migrate
--   Make account with Cloudinary To get static and media files.
--   From Cloudinary Dashboard, Copy your CLOUDINARY_URL:
--   Add Cloudinary URL to env.py file:os.environ["CLOUDINARY_URL"] = "cloudinary://\***\*\*\*\*\***\*\*\*\*\***\*\*\*\*\***"
--   Add Cloudinary URL to Heroku Config Vars:"cloudinary://\***\*\*\*\*\***\*\*\*\*\***\*\*\*\*\***"
--   Temporalliy add DISABLE_COLLECTSTATIC inside the heroku config Vars:DISABLE_COLLECTSTATIC, 1
--   Add Cloudinary Libraries to settings.py installed apps:INSTALLED_APPS = ['cloudinary_storage', 'django.contrib.staticfiles', 'cloudinary']
--   In the settings.py file under the STATIC_URL = 'static/' add:
+-   In Heroku create a new app, give it a name and choose location.
 
-```python
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+-   In the deploy tab, go to 'deployment method', choose 'Github'
 
-```
+-   Search for the repository in Github that you want to connect and click on the connect button
 
--   Place under the BASE_DIR line in settings.py:TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
--   Change the templates directory to TEMPLATES_DIR Place within the TEMPLATES array:TEMPLATES = [{'DIRS': [TEMPLATES_DIR],],},},]
--   Add Heroku Hostname to ALLOWED_HOSTS:ALLOWED_HOSTS = ["project4-cocktail-nerd.herokuapp.com", "localhost"]
--   Create 3 new folders on the root directory: media, static, templates
--   Create Procfile needed for Heroku on the root directory and inside the file add this:web: gunicorn dentist.wsgi
--   Before deploying on heroku make sure: DEBUG = False Remove DISABLE_COLLECTSTATIC from the config vars.
--   Created .slugignore with /documentation, README.md & TESTING.md as I don't want the documentation to upload to Heroku.
--   Click **Enable Automatic Deploys** for automatic deployment when you push updates to Github.
--   Select the correct branch for deployment from the drop-down menu and click **Deploy Branch** for manual deployment.
+-   In the 'manual deploy' section click on 'deploy branch'
+
+-   The build log will run, when complete you will see a message saying 'build succeeded'
+
+-   An 'Open App' button will appear, click this to take you to your deployed app.
+
+-   You can enable automatic deploys in the 'deployment section' so each time you push your code to 'Github' your deployed app will be updated.
 
 ### Github Local Deployment
 
@@ -545,9 +525,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 ### I have listed some of the resources I used for inspiration and in researching how to create the foodSNAP app.
 
--   Building a blog application with Django <a href="https://djangocentral.com/building-a-blog-application-with-django/" target="_blank"><strong>HERE</strong></a>
-
--   Code Institute "Moments" helped me setup the initial code for foodSNAP.
+-   Code Institute "Moments" tutorial helped me setup the initial code for foodSNAP.
 
 -   All the foodSNAP receipes are from <a href="https://www.bbcgoodfood.com/" target="_blank"><strong>BBC Good Food</strong></a>
 
@@ -555,17 +533,15 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 ### These are some of the resources that helped me solve some of the issues encountered when developing the site
 
--   [W3Schools - Python](https://www.w3schools.com/python/)
+-   [W3Schools - React](https://www.w3schools.com/react/default.asp)
 -   [Stack Overflow](https://stackoverflow.com/) for various code snippets and solutions
--   [Django Documentation](https://docs.djangoproject.com/en/4.1/)
--   [Django Testing](https://www.youtube.com/watch?v=0MrgsYswT1c&list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM&index=3)
--   [Django Testing Cheatsheet](https://www.valentinog.com/blog/testing-django/)
--   [Django User Profile](https://dev.to/earthcomfy/django-user-profile-3hik)
--   [Django Allauth](https://django-allauth.readthedocs.io/en/latest/)
--   [Django Real Python Manage Users](https://realpython.com/manage-users-in-django-admin/)
--   [Summernote](https://summernote.org/deep-dive/)
--   [Awesome Django](https://awesomedjango.org/)
--   [Codemycom](https://www.youtube.com/c/Codemycom)
+-   [React Documentation](https://reactjs.org/)
+-   [React Testing Jest](https://jestjs.io/docs/tutorial-react)
+-   [React Testing Jest Cheatsheet](https://devhints.io/jest)
+-   [React Social Media Site](https://www.youtube.com/watch?v=zM93yZ_8SvE)
+-   [Material UI](https://mui.com/)
+-   [Material UI Reusable Confirmation Dialog](https://dev.to/uguremirmustafa/material-ui-reusable-confirmation-dialog-in-react-2jnl)
+
 
 <h2 id="acknowledgements">Acknowledgements</h2>
 
