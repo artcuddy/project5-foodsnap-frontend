@@ -42,14 +42,12 @@ Follow other users & find great recipes to try out that they have uploaded to fo
 
 Project Milestone 5 for Code Institute Full-stack development program. foodSNAP - is a frontend React.js project that runs on Heroku.
 
-The site allows users to upload foodSNAPS then edit posts, comments and recipes from the frontend once registered & logged in.
+This app allows users to upload foodSNAPS then create, edit, add comments and add recipes from the frontend once registered & logged in.
 
 <h1 id="demo">Live Site</h1>
 A live version of the site can be found <a href="https://foodsnap-react.herokuapp.com/" target="_blank">HERE</a><br><br>
 
-
 The backend API repository can be found <a href="https://github.com/artcuddy/project5-foodsnap-backend" target="_blank">HERE </a><br><br>
-
 
 <img src="documentation/screenshots/foodsnap-responsive.webp"><br><br>
 
@@ -218,7 +216,7 @@ Initial Wireframes
 
 <img src="documentation/screenshots/add-recipe.webp">
 
--   Recipe added 
+-   Recipe added
 
 <img src="documentation/screenshots/recipe.webp">
 
@@ -308,15 +306,16 @@ Initial Wireframes
 
 -   Social login to allow the user to signup using Facebook or Google.
 
--   Allowing users to share their foodSNAPS with other foodSNAP users.
-<a href="https://github.com/artcuddy/project5-foodsnap-frontend/issues/8">Github Issue #8</a>
+-   Allow users to tag each other by username.
 
+-   Allowing users to share their foodSNAPS with other foodSNAP users.
+    <a href="https://github.com/artcuddy/project5-foodsnap-frontend/issues/8">Github Issue #8</a>
 
 <h1 id="technologies">Technologies</h1>
 
 <a href="#top">Back to the top.</a>
 
-Throughout the planning, design, testing and deployment of the foodSNAP app , I have used a number of technologies listed below:
+Throughout the planning, design, testing and deployment of the foodSNAP app, I have used a number of technologies listed below:
 
 <h2 id="languages">Languages Used</h2>
 
@@ -335,13 +334,13 @@ Throughout the planning, design, testing and deployment of the foodSNAP app , I 
     As the HTTP client for the app.
 -   [Material UI](https://mui.com/)<br>
     Was used for certain components and icons.
--   [jwt-decode](https://www.npmjs.com/package/jwt-decode)<br>
+-   [JWT Decode](https://www.npmjs.com/package/jwt-decode)<br>
     To help decoding JWTs token which are Base64Url encoded.
--   [notistack](https://notistack.com/)<br>
+-   [Notistack](https://notistack.com/)<br>
     It allows notifications to be stacked on top of one another.
 -   [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component)<br>
     A component to make the post load as an infinite scroll.
--   [zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)<br>
+-   [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)<br>
     A small, fast and scalable bearbones state-management solution.
 -   [react-router-dom](https://www.npmjs.com/package/react-router-dom)<br>
     Bindings for using React Router in web applications.
@@ -384,7 +383,6 @@ Throughout the planning, design, testing and deployment of the foodSNAP app , I 
 <a href="#top">Back to the top.</a>
 
 <h2 id="component-diagram">React Component Diagram</h2>
-
 
 ![Component Diagram](documentation/wireframes/foodsnap-flowchart.webp)
 
@@ -450,9 +448,9 @@ This project was deployed to Heroku using the Heroku CLI details below
 
 -   When you push code to Heroku it will look at the repository contents to decide how
     to build the project. One of the factors taken into consideration is the package file.
-    With a Python project the standard file is a requirements.txt file, which will have the
+    With a React project the standard file is a package.json file, which will have the
     list of packages needed to run the project. If this file is present it will build the project
-    using the Python buildpack.
+    using the React buildpack.
 
 -   It is also possible to specify the buildpack manually. More information about
     buildpacks can be found in the documentation. To check the buildpack for the
@@ -473,6 +471,20 @@ This project was deployed to Heroku using the Heroku CLI details below
 -   An 'Open App' button will appear, click this to take you to your deployed app.
 
 -   You can enable automatic deploys in the 'deployment section' so each time you push your code to 'Github' your deployed app will be updated.
+
+## Database Creation Steps On Elephant SQL.
+
+-   Login to <a href="https://customer.elephantsql.com/login">ElephantSQL</a> 
+
+-   Click create nerw instance.
+
+-   Give it a name, select the free plan and click on select region.
+
+-   As I'm in Ireland I selected AWS EU-WEST-1, then click review and if happy click create instance.
+
+-   Click on the created instance and copy the database access URL you will need to add this to Heroku as a Config Var.
+
+-   Once these steps have been completed your API should now be connected to the ElephantSQL postgres database.
 
 ### Github Local Deployment
 
@@ -537,7 +549,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 -   All the header images are from <a href="https://unsplash.com/" target="_blank"><strong>Unsplash</strong></a>
 
-### These are some of the resources that helped me solve some of the issues encountered when developing the site
+### These are some of the resources that helped me solve some of the issues encountered when developing the site and also provided some inspiration
 
 -   [W3Schools - React](https://www.w3schools.com/react/default.asp)
 -   [Stack Overflow](https://stackoverflow.com/) for various code snippets and solutions
@@ -545,9 +557,11 @@ If you want to make changes to the repo without affecting it, you can make a cop
 -   [React Testing Jest](https://jestjs.io/docs/tutorial-react)
 -   [React Testing Jest Cheatsheet](https://devhints.io/jest)
 -   [React Social Media Site](https://www.youtube.com/watch?v=zM93yZ_8SvE)
+-   [React Social Media App Design](https://www.youtube.com/watch?v=FweHcYHkt9A)
 -   [Material UI](https://mui.com/)
 -   [Material UI Reusable Confirmation Dialog](https://dev.to/uguremirmustafa/material-ui-reusable-confirmation-dialog-in-react-2jnl)
-
+-   [React Scroll Restoration](https://v5.reactrouter.com/web/guides/scroll-restoration)
+-   [Scroll to top on route change](https://www.kindacode.com/article/react-router-dom-scroll-to-top-on-route-change/)
 
 <h2 id="acknowledgements">Acknowledgements</h2>
 
