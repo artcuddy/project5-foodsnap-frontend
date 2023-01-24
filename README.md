@@ -47,6 +47,8 @@ This app allows users to upload foodSNAPS then create, edit, add comments and ad
 <h1 id="demo">Live Site</h1>
 A live version of the site can be found <a href="https://foodsnap-react.herokuapp.com/" target="_blank">HERE</a><br><br>
 
+This repository is the frontend utilising React.js.
+
 The backend API repository can be found <a href="https://github.com/artcuddy/project5-foodsnap-backend" target="_blank">HERE </a><br><br>
 
 <img src="documentation/screenshots/foodsnap-responsive.webp"><br><br>
@@ -141,6 +143,8 @@ The Github issues were not just used to record User Stories but also used to rec
 Initial Wireframes
 
 <a href="#top">Back to the top.</a>
+
+-   The wireframes were created using <a href="https://whimsical.com/">Whimsical</a>
 
 -   Desktop
 
@@ -474,7 +478,7 @@ This project was deployed to Heroku using the Heroku CLI details below
 
 ## Database Creation Steps On Elephant SQL.
 
--   Login to <a href="https://customer.elephantsql.com/login">ElephantSQL</a> 
+-   Login to <a href="https://customer.elephantsql.com/login">ElephantSQL</a>
 
 -   Click create nerw instance.
 

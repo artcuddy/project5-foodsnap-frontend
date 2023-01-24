@@ -34,9 +34,118 @@ Testing has taken place continuously throughout the development of the project. 
 The online version of the Manual Functional Test Case can be found here <a href="https://docs.google.com/spreadsheets/d/1httv3Y2IJjzV_sj7WBncre5ICvjTv1ODlphDvt8Yrj8/edit#gid=0" target="_blank">**HERE**</a><br>
 
 <br/>
-<h1 id="automated-testing">Automated Unit Testing Results</h1>
+<h1 id="automated-testing">Automated Jest Testing Results</h1>
 
-### Before Automated Unit testing coverage was at 79%
+Created 6 tests utilising the Jest testing suite
+
+3 NavBar tests to see if the correct navigation links are shown to a logged in user versus a logged out user in the header.
+
+```
+test("renders NavBar", () => {
+  render(
+    <Router>
+      <NavBar />
+    </Router>
+  );
+
+  // screen.debug();
+  const signInLink = screen.getByRole("link", { name: "Sign in" });
+  expect(signInLink).toBeInTheDocument();
+});
+
+test("renders link to the user profile for a logged in user", async () => {
+  render(
+    <Router>
+      <CurrentUserProvider>
+        <NavBar />
+      </CurrentUserProvider>
+    </Router>
+  );
+
+  const profileAvatar = await screen.findByText("paul");
+  expect(profileAvatar).toBeInTheDocument();
+});
+
+test("renders Sign in and Sign up buttons again on log out", async () => {
+  render(
+    <Router>
+      <CurrentUserProvider>
+        <NavBar />
+      </CurrentUserProvider>
+    </Router>
+  );
+
+  const signOutLink = await screen.findByText("Sign out", { name: "Sign out" });
+  fireEvent.click(signOutLink);
+
+  const signInLink = await screen.findByText("Sign in", { name: "Sign in" });
+  const signUpLink = await screen.findByText("Sign up", { name: "Sign up" });
+
+  expect(signInLink).toBeInTheDocument();
+  expect(signUpLink).toBeInTheDocument();
+});
+```
+
+3 FooterNavBar tests to see if the correct navigation links are shown to a logged in user versus a logged out user in the footer.
+
+```
+test("renders NavBar", () => {
+  render(
+    <Router>
+      <NavBar />
+    </Router>
+  );
+
+  // screen.debug();
+  const signInLink = screen.getByRole("link", { name: "Sign in" });
+  expect(signInLink).toBeInTheDocument();
+});
+
+test("renders links to the Homepage, users feed page and users liked page for a logged in user", async () => {
+  render(
+    <Router>
+      <CurrentUserProvider>
+        <FooterNavBar />
+      </CurrentUserProvider>
+    </Router>
+  );
+
+  const homeLink = await screen.findByText("Home");
+  const feedLink = await screen.findByText("Feed");
+  const likedLink = await screen.findByText("Liked");
+  expect(homeLink).toBeInTheDocument();
+  expect(feedLink).toBeInTheDocument();
+  expect(likedLink).toBeInTheDocument();
+});
+
+test("renders Home icon link on log out", async () => {
+  render(
+    <Router>
+      <CurrentUserProvider>
+        <NavBar />
+        <FooterNavBar />
+      </CurrentUserProvider>
+    </Router>
+  );
+
+  const signOutLink = await screen.findByText("Sign out", {
+    name: "Sign out",
+  });
+  fireEvent.click(signOutLink);
+
+  const homeLink = await screen.getByLabelText("Click to view liked page", {
+    wname: "Home",
+  });
+
+  expect(homeLink).toBeInTheDocument();
+});
+```
+
+-  All tests passed
+
+![Test Results](documentation/testing/jest-test-results.webp)
+
+
 
 <br />
 

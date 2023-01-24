@@ -6,7 +6,7 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SortOutlinedIcon from "@mui/icons-material/SortOutlined";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
-const FixedFooterNavigation = () => {
+const FooterNavBar = () => {
   const currentUser = useCurrentUser();
 
   const loggedOutBar = (
@@ -21,6 +21,7 @@ const FixedFooterNavigation = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/"
+        aria-label="Click to view home page"
       >
         <HomeOutlinedIcon /> Home
       </NavLink>
@@ -28,6 +29,7 @@ const FixedFooterNavigation = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/feed"
+        aria-label="Click to view feed page"
       >
         <SortOutlinedIcon /> Feed
       </NavLink>
@@ -35,6 +37,7 @@ const FixedFooterNavigation = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/liked"
+        aria-label="Click to view liked page"
       >
         <FavoriteBorderOutlinedIcon /> Liked
       </NavLink>
@@ -52,4 +55,4 @@ const FixedFooterNavigation = () => {
   );
 };
 
-export default FixedFooterNavigation;
+export default FooterNavBar;
