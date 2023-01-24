@@ -212,21 +212,29 @@ Initial Wireframes
 
 <img src="documentation/screenshots/add-post.webp">
 
--   Edit foodSNAP
+-   Edit foodSNAP by clicking on the 3 dots icon on the details page.
 
 <img src="documentation/screenshots/edit-post.webp">
 
--   Add foodSNAP recipe
+-   Add foodSNAP recipe.
 
 <img src="documentation/screenshots/add-recipe.webp">
 
--   Recipe added
+-   Recipe added.
 
 <img src="documentation/screenshots/recipe.webp">
 
--   Add comment
+-   Close Recipe once openend the icon changes to an X.
+
+<img src="documentation/screenshots/close-recipe.webp">
+
+-   Add a comment
 
 <img src="documentation/screenshots/add-comment.webp">
+
+-   Edit a comment by clicking on the 3 dots icon.
+
+<img src="documentation/screenshots/edit-comment.webp">
 
 <h2 id="foodsnap-sidebar">foodSNAP Sidebar</h2>
 
