@@ -2,7 +2,7 @@
 
 Back to the [README](README.md)
 
-The backend testing repository can be found <a href="https://github.com/artcuddy/project5-foodsnap-backend/blob/main/TESTING.md" target="_blank">**HERE**</a><br>
+The backend API testing repository can be found <a href="https://github.com/artcuddy/project5-foodsnap-backend/blob/main/TESTING.md" target="_blank">**HERE**</a><br>
 
 <h1 id="contents">Contents</h1>
 
@@ -10,11 +10,11 @@ The backend testing repository can be found <a href="https://github.com/artcuddy
 -   [Manual Testing](#manual-testing)
 -   [Automated Testing](#automated-testing)
 -   [Messaging / Alerts](#messaging)
--   [ESlint](#eslint-validation)
--   [HTML](#html-validation)
--   [CSS](#css-validation)
+-   [ESlint Validator](#eslint-validation)
+-   [HTML Validator](#html-validation)
+-   [CSS Validator](#css-validation)
 -   [Console Results](#console-results)
--   [Lighthouse](#lighthouse)
+-   [Lighthouse Results](#lighthouse)
     -   [Desktop](#lighthouse-desktop)
     -   [Mobile](#lighthouse-mobile)
 -   [Bugs / Issues](#bugs)
@@ -141,11 +141,9 @@ test("renders Home icon link on log out", async () => {
 });
 ```
 
--  All tests passed
+-   All tests passed
 
 ![Test Results](documentation/testing/jest-test-results.webp)
-
-
 
 <br />
 
@@ -213,11 +211,9 @@ test("renders Home icon link on log out", async () => {
 
 ![Created](documentation/messaging/liked.webp)
 
-
 -   foodSNAP unliked success alert top left of the screen.
 
 ![Created](documentation/messaging/unliked.webp)
-
 
 <h1 id="eslint-validation">ESLint Validation</h1>
 
@@ -286,21 +282,18 @@ BUG: When a user navigates to a new page the page scroll depth stays the same us
 <br />
 <a href="https://github.com/artcuddy/project5-foodsnap-frontend/issues/16">Github Issue #16</a>
 
--  Found a solution here https://v5.reactrouter.com/web/guides/scroll-restoration and implemented this tested and scroll to top on navigation works fine when going forward but also scroll to top on navigating backward
+-   Found a solution here https://v5.reactrouter.com/web/guides/scroll-restoration and implemented this tested and scroll to top on navigation works fine when going forward but also scroll to top on navigating backward
 
 BUG: When a user navigates back to the previous page the page scrolls to the top with ScrollToTop enabled.
 <br />
 <a href="https://github.com/artcuddy/project5-foodsnap-frontend/issues/17">Github Issue #17</a>
 
--  Found a solution here https://www.kindacode.com/article/react-router-dom-scroll-to-top-on-route-change/ to stop the scroll to top happening on back navigation using POP
+-   Found a solution here https://www.kindacode.com/article/react-router-dom-scroll-to-top-on-route-change/ to stop the scroll to top happening on back navigation using POP
 
 BUG: The post page refreshes 3 times when a user likes a post.
 <br />
 <a href="https://github.com/artcuddy/project5-foodsnap-frontend/issues/18">Github Issue #18</a>
 
--  I had accidentally added an alert to a useEffect statement which caused the page to refresh on post like, removed this to sort the issue
+-   I had accidentally added an alert to a useEffect statement which caused the page to refresh on post like, removed this to sort the issue
 
-
-
-
-
+Back to the [README](README.md)

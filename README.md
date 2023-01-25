@@ -33,6 +33,9 @@ Follow other users & find great recipes to try out that they have uploaded to fo
     -   [React Packages](#react-packages)
     -   [Frameworks & Libraries](#frameworks)
 -   [Development & Testing](#testing)
+    -   [Custom Components](#custom-components)
+    -   [Custom Hooks](#custom-hooks)
+    -   [Contexts](#custom-contexts)
     -   [React Component Diagram](#component-diagram)
     -   [Testing Results Automated & Manual](TESTING.md)
 -   [Deployment](#deployment)
@@ -398,6 +401,281 @@ Throughout the planning, design, testing and deployment of the foodSNAP app, I h
 
 ![Component Diagram](documentation/wireframes/foodsnap-flowchart.webp)
 
+<h2 id="custom-components">Custom Components</h2>
+
+<a href="#top">Back to the top.</a>
+
+-   ConfirmDialog.js was created to enable a popup modal to confirm the users action before content deletions.
+
+```
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+  Box,
+  IconButton,
+  Typography,
+} from "@mui/material/";
+import { Close } from "@mui/icons-material";
+import { create } from "zustand";
+
+const ConfirmDialog = () => {
+  // destructure the store data and functions
+  const { message, onSubmit, close } = useConfirmDialogStore();
+  return (
+    // if the onSubmit is undefined the dialog will be closed.
+    // close() function sets the onSubmit to undefined,
+    // so it will close the dialog, if we pass it to the onClose attribute.
+    <Dialog open={Boolean(onSubmit)} onClose={close} maxWidth="sm" fullWidth>
+      <DialogTitle>Confirm the action</DialogTitle>
+      <Box position="absolute" top={0} right={0}>
+        <IconButton onClick={close}>
+          <Close />
+        </IconButton>
+      </Box>
+      <DialogContent>
+        <Typography>{message}</Typography>
+      </DialogContent>
+      <DialogActions>
+        <Button color="common" variant="contained" onClick={close}>
+          Cancel
+        </Button>
+        <Button
+          color="error"
+          variant="contained"
+          onClick={() => {
+            if (onSubmit) {
+              onSubmit();
+            }
+            close();
+          }}
+        >
+          Confirm
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+};
+
+export default ConfirmDialog;
+
+const useConfirmDialogStore = create((set) => ({
+  message: "",
+  onSubmit: undefined,
+  close: () => set({ onSubmit: undefined }),
+}));
+
+export const confirmDialog = (message, onSubmit) => {
+  useConfirmDialogStore.setState({
+    message,
+    onSubmit,
+  });
+};
+```
+
+-   ScrollToTop.js was created to scroll the user to the top of the page on navigation to a new page.
+
+```
+import { useEffect } from "react";
+import { useLocation, useHistory } from "react-router";
+
+const ScrollToTop = (props) => {
+  const location = useLocation();
+  const history = useHistory();
+  useEffect(() => {
+    return () => {
+      if (history.action !== "POP") {
+        window.scrollTo(0, 0);
+      }
+    };
+  }, [location, history.action]);
+
+  return <>{props.children}</>;
+};
+
+export default ScrollToTop;
+```
+
+-   AlertPopUp.js was created to enable toast messaging on user success and error actions.
+
+```
+import { Alert } from "@mui/material";
+import useAlert from "../hooks/useAlert";
+
+const AlertPopup = () => {
+  const { text, type } = useAlert();
+
+  if (text && type) {
+    return (
+      <Alert
+        severity={type}
+        sx={{
+          position: "absolute",
+          zIndex: 1000,
+        }}
+      >
+        {text}
+      </Alert>
+    );
+  } else {
+    return <></>;
+  }
+};
+
+export default AlertPopup;
+```
+
+-   FloatingActionButton.js was created to enable the + icon in the NavBar to allow a user to add a new foodSNAP and display a tooltip on desktop hover.
+
+```
+import Box from "@mui/material/Box";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
+import Tooltip from "@mui/material/Tooltip";
+
+export default function FloatingActionButton() {
+  return (
+    <Tooltip title="Click to add a new foodSNAP!" placement="bottom" arrow>
+      <Box sx={{ "& > :not(style)": { m: 1 } }}>
+        <Fab size="small" color="black" aria-label="add">
+          <AddIcon />
+        </Fab>
+      </Box>
+    </Tooltip>
+  );
+}
+```
+
+-   FooterNavBar.js was created to display a sticky foorte on mobile with different icons depending on if the user is logged in or not.
+
+```
+import { NavLink } from "react-router-dom";
+import Paper from "@mui/material/Paper";
+import styles from "../styles/FooterNavBar.module.css";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import SortOutlinedIcon from "@mui/icons-material/SortOutlined";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
+
+const FooterNavBar = () => {
+  const currentUser = useCurrentUser();
+
+  const loggedOutBar = (
+    <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/">
+      <HomeOutlinedIcon /> Home
+    </NavLink>
+  );
+
+  const loggedInBar = (
+    <>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/"
+        aria-label="Click to view home page"
+      >
+        <HomeOutlinedIcon /> Home
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/feed"
+        aria-label="Click to view feed page"
+      >
+        <SortOutlinedIcon /> Feed
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/liked"
+        aria-label="Click to view liked page"
+      >
+        <FavoriteBorderOutlinedIcon /> Liked
+      </NavLink>
+    </>
+  );
+
+  return (
+    <Paper
+      className={styles.FooterBar}
+      sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
+      elevation={3}
+    >
+      {currentUser ? loggedInBar : loggedOutBar}
+    </Paper>
+  );
+};
+
+export default FooterNavBar;
+```
+
+<h2 id="custom-hooks">Custom Hooks</h2>
+
+<a href="#top">Back to the top.</a>
+
+-   UseAlert.js hook was created to call the alert messaging in the app
+
+```
+import { useContext } from "react";
+import AlertContext from "../contexts/AlertContext";
+
+const useAlert = () => useContext(AlertContext);
+
+export default useAlert;
+```
+
+<h2 id="custom-contexts">Custom Context</h2>
+
+<a href="#top">Back to the top.</a>
+
+-   AlertContext.js was created to allow the alert functionality to be used at every stage in the app
+
+```
+import { createContext, useState } from "react";
+
+const ALERT_TIME = 3000;
+const initialState = {
+  text: "",
+  type: "",
+};
+
+const AlertContext = createContext({
+  ...initialState,
+  setAlert: () => {},
+});
+
+export const AlertProvider = ({ children }) => {
+  const [text, setText] = useState("");
+  const [type, setType] = useState("");
+
+  const setAlert = (text, type) => {
+    setText(text);
+    setType(type);
+
+    setTimeout(() => {
+      setText("");
+      setType("");
+    }, ALERT_TIME);
+  };
+
+  return (
+    <AlertContext.Provider
+      value={{
+        text,
+        type,
+        setAlert,
+      }}
+    >
+      {children}
+    </AlertContext.Provider>
+  );
+};
+
+export default AlertContext;
+```
+
 <h2 id="testing-results">Automated Testing Results</h2>
 
 -   Automated Testing results [here](TESTING.md)
@@ -484,21 +762,7 @@ This project was deployed to Heroku using the Heroku CLI details below
 
 -   You can enable automatic deploys in the 'deployment section' so each time you push your code to 'Github' your deployed app will be updated.
 
-## Database Creation Steps On Elephant SQL.
-
--   Login to <a href="https://customer.elephantsql.com/login">ElephantSQL</a>
-
--   Click create nerw instance.
-
--   Give it a name, select the free plan and click on select region.
-
--   As I'm in Ireland I selected AWS EU-WEST-1, then click review and if happy click create instance.
-
--   Click on the created instance and copy the database access URL you will need to add this to Heroku as a Config Var.
-
--   Once these steps have been completed your API should now be connected to the ElephantSQL postgres database.
-
-### Github Local Deployment
+## Github Local Deployment
 
 There are many ways to deploy the project locally on your own device. Forking, Cloning, GitHub Desktop and Zip Exctraction, the steps in these processes are outlined below:
 
