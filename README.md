@@ -548,7 +548,7 @@ export default function FloatingActionButton() {
 }
 ```
 
--   FooterNavBar.js was created to display a sticky foorte on mobile with different icons depending on if the user is logged in or not.
+-   FooterNavBar.js was created to display a sticky footer on mobile with different icons depending on if the user is logged in or not.
 
 ```
 import { NavLink } from "react-router-dom";
