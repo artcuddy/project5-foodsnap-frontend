@@ -678,11 +678,11 @@ export default AlertContext;
 
 <h2 id="testing-results">Automated Testing Results</h2>
 
--   Automated Testing results [here](TESTING.md)
+-   Automated Testing results [here](TESTING.md#automated-testing)
 
 <h2 id="testing-results">Manual Testing Results</h2>
 
--   Manual Testing results [here](TESTING.md)
+-   Manual Testing results [here](TESTING.md#manual-testing)
 
 <h1 id="deployment">Deployment</h1>
 
