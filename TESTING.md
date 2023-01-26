@@ -21,7 +21,7 @@ The backend API testing repository can be found <a href="https://github.com/artc
 
 <h1 id="introduction">Introduction</h1>
 
-Project Milestone 5 for Code Institute Full-stack development program. foodSNAP - all testing results and code validation can be found here. <br>
+Project Milestone 5 for Code Institute Full-stack development program. foodSNAP - all testing results and code validation are listed below.<br>
 Testing has taken place continuously throughout the development of the project. The app was tested regularly and deployed early to Heroku to confirm local and remote functioned the same.
 
 <h1 id="manual-testing">Manual Functional Testing Results</h1>
