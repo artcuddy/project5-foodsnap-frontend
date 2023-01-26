@@ -1,5 +1,6 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 import { CurrentUserProvider } from "../../contexts/CurrentUserContext";
 import FooterNavBar from "../FooterNavBar";
 import NavBar from "../NavBar";
@@ -11,7 +12,6 @@ test("renders NavBar", () => {
     </Router>
   );
 
-  // screen.debug();
   const signInLink = screen.getByRole("link", { name: "Sign in" });
   expect(signInLink).toBeInTheDocument();
 });
@@ -46,10 +46,11 @@ test("renders Home icon link on log out", async () => {
   const signOutLink = await screen.findByText("Sign out", {
     name: "Sign out",
   });
-  fireEvent.click(signOutLink);
 
-  const homeLink = await screen.getByLabelText("Click to view liked page", {
-    wname: "Home",
+  userEvent.click(signOutLink);
+
+  const homeLink = screen.getByLabelText("Click to view liked page", {
+    name: "Home",
   });
 
   expect(homeLink).toBeInTheDocument();

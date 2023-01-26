@@ -36,7 +36,23 @@ The online version of the Manual Functional Test Case can be found here <a href=
 <br/>
 <h1 id="automated-testing">Automated Jest Testing Results</h1>
 
-Created 6 tests utilising the Jest testing suite
+Jest was setup for testing by adding the below code to the setupTests.js file to utilise the mocks/handlers.js file to simulate a user logging in and out.
+It also starts the simulated browser and shuts it down after each test is run.
+The handlers.js creates a user object and accesses the base url and dj-rest-auth/logout/ to test user authentication.
+
+```
+import "@testing-library/jest-dom";
+import { setupServer } from "msw/node";
+import { handlers } from "./mocks/handlers";
+
+const server = setupServer(...handlers);
+
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
+```
+
+Created 7 tests utilising the Jest testing suite
 
 3 NavBar tests to see if the correct navigation links are shown to a logged in user versus a logged out user in the header.
 
@@ -138,6 +154,27 @@ test("renders Home icon link on log out", async () => {
   });
 
   expect(homeLink).toBeInTheDocument();
+});
+```
+
+1 NotFound test to see if the not found message is shown when no results can be found
+
+```
+import { render, screen, waitFor } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
+import NotFound from "../NotFound";
+
+test("renders notfound message", async () => {
+  render(
+    <Router>
+      <NotFound />
+    </Router>
+  );
+
+  const notFoundMessage = screen.getByText("Sorry, the page", { exact: false });
+  await waitFor(() => {
+    expect(notFoundMessage).toBeInTheDocument();
+  });
 });
 ```
 
