@@ -21,6 +21,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
 
 function PostPage() {
+  const [hasLoaded, setHasLoaded] = useState(false);
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
 
@@ -37,61 +38,74 @@ function PostPage() {
         ]);
         setPost({ results: [post] });
         setComments(comments);
+        setHasLoaded(true);
       } catch (err) {
         // console.log(err);
       }
     };
 
-    handleMount();
+    setHasLoaded(false);
+    const timer = setTimeout(() => {
+      handleMount();
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [id]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        <Post {...post.results[0]} setPosts={setPost} postPage />
-
-        <Container className={`${appStyles.Content} ${styles.Comments}`}>
-          {currentUser ? (
-            <CommentCreateForm
-              profile_id={currentUser.profile_id}
-              profileImage={profile_image}
-              post={id}
-              setPost={setPost}
-              setComments={setComments}
-            />
-          ) : comments.results.length ? (
-            <h5>Comments</h5>
-          ) : null}
-          {comments.results.length ? (
-            <InfiniteScroll
-              // eslint-disable-next-line react/no-children-prop
-              children={comments.results.map((comment) => (
-                <Comment
-                  key={comment.id}
-                  {...comment}
+        {hasLoaded ? (
+          <>
+            <Post {...post.results[0]} setPosts={setPost} postPage />
+            <Container className={`${appStyles.Content} ${styles.Comments}`}>
+              {currentUser ? (
+                <CommentCreateForm
+                  profile_id={currentUser.profile_id}
+                  profileImage={profile_image}
+                  post={id}
                   setPost={setPost}
                   setComments={setComments}
                 />
-              ))}
-              dataLength={comments.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!comments.next}
-              next={() => fetchMoreData(comments, setComments)}
-            />
-          ) : currentUser ? (
-            <span className={styles.NoComment}>
-              No comments yet, be the first to comment!
-            </span>
-          ) : (
-            <Tooltip title="Please login to comment!" placement="top" arrow>
-              <Link to={"/signin"}>
-                <span className={styles.NoComment}>No comments... yet</span>
-              </Link>
-            </Tooltip>
-          )}
-        </Container>
-        <PopularPosts mobile />
+              ) : comments.results.length ? (
+                <h5>Comments</h5>
+              ) : null}
+              {comments.results.length ? (
+                <InfiniteScroll
+                  // eslint-disable-next-line react/no-children-prop
+                  children={comments.results.map((comment) => (
+                    <Comment
+                      key={comment.id}
+                      {...comment}
+                      setPost={setPost}
+                      setComments={setComments}
+                    />
+                  ))}
+                  dataLength={comments.results.length}
+                  loader={<Asset spinner />}
+                  hasMore={!!comments.next}
+                  next={() => fetchMoreData(comments, setComments)}
+                />
+              ) : currentUser ? (
+                <span className={styles.NoComment}>
+                  No comments yet, be the first to comment!
+                </span>
+              ) : (
+                <Tooltip title="Please login to comment!" placement="top" arrow>
+                  <Link to={"/signin"}>
+                    <span className={styles.NoComment}>No comments... yet</span>
+                  </Link>
+                </Tooltip>
+              )}
+            </Container>
+            <PopularPosts mobile />
+          </>
+        ) : (
+          <Asset spinner />
+        )}
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
