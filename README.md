@@ -50,7 +50,7 @@ This app allows users to upload foodSNAPS then create, edit, add comments and ad
 <h1 id="demo">Live Site</h1>
 A live version of the site can be found <a href="https://foodsnap-react.herokuapp.com/" target="_blank">HERE</a><br><br>
 
-This repository is the frontend utilising React.js.
+This repository is the frontend for foodSNAP utilising React.js.
 
 The backend API repository can be found <a href="https://github.com/artcuddy/project5-foodsnap-backend" target="_blank">HERE </a><br><br>
 
@@ -405,7 +405,8 @@ Throughout the planning, design, testing and deployment of the foodSNAP app, I h
 
 <a href="#top">Back to the top.</a>
 
--   ConfirmDialog.js was created to enable a popup modal to confirm the users action before content deletions.
+-   [ConfirmDialog.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/ConfirmDialog.js) was created to enable a popup modal to confirm the users action before content deletions.
+
 
 ```
 import {
@@ -422,12 +423,8 @@ import { Close } from "@mui/icons-material";
 import { create } from "zustand";
 
 const ConfirmDialog = () => {
-  // destructure the store data and functions
   const { message, onSubmit, close } = useConfirmDialogStore();
   return (
-    // if the onSubmit is undefined the dialog will be closed.
-    // close() function sets the onSubmit to undefined,
-    // so it will close the dialog, if we pass it to the onClose attribute.
     <Dialog open={Boolean(onSubmit)} onClose={close} maxWidth="sm" fullWidth>
       <DialogTitle>Confirm the action</DialogTitle>
       <Box position="absolute" top={0} right={0}>
@@ -475,7 +472,7 @@ export const confirmDialog = (message, onSubmit) => {
 };
 ```
 
--   ScrollToTop.js was created to scroll the user to the top of the page on navigation to a new page.
+-   [ScrollToTop.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/ScrollToTop.js) was created to scroll the user to the top of the page on navigation to a new page.
 
 ```
 import { useEffect } from "react";
@@ -498,7 +495,7 @@ const ScrollToTop = (props) => {
 export default ScrollToTop;
 ```
 
--   AlertPopUp.js was created to enable toast messaging on user success and error actions.
+-   [AlertPopUp.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/AlertPopup.js) was created to enable toast messaging on user success and error actions.
 
 ```
 import { Alert } from "@mui/material";
@@ -527,7 +524,7 @@ const AlertPopup = () => {
 export default AlertPopup;
 ```
 
--   FloatingActionButton.js was created to enable the + icon in the NavBar to allow a user to add a new foodSNAP and display a tooltip on desktop hover.
+-   [FloatingActionButton.js ](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/FloatingActionButton.js) was created to enable the + icon in the NavBar to allow a user to add a new foodSNAP and display a tooltip on desktop hover.
 
 ```
 import Box from "@mui/material/Box";
@@ -548,7 +545,7 @@ export default function FloatingActionButton() {
 }
 ```
 
--   FooterNavBar.js was created to display a sticky footer on mobile with different icons depending on if the user is logged in or not.
+-   [FooterNavBar.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/FooterNavBar.js) was created to display a sticky footer on mobile with different icons depending on if the user is logged in or not.
 
 ```
 import { NavLink } from "react-router-dom";
@@ -615,7 +612,7 @@ export default FooterNavBar;
 
 <a href="#top">Back to the top.</a>
 
--   UseAlert.js hook was created to call the alert messaging in the app
+-   [UseAlert.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/hooks/useAlert.js) hook was created to call the alert messaging in the app
 
 ```
 import { useContext } from "react";
@@ -630,7 +627,7 @@ export default useAlert;
 
 <a href="#top">Back to the top.</a>
 
--   AlertContext.js was created to allow the alert functionality to be used at every stage in the app
+-   [AlertContext.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/contexts/AlertContext.js) was created to allow the alert functionality to be used at every stage in the app
 
 ```
 import { createContext, useState } from "react";
