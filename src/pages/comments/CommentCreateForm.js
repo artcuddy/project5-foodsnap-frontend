@@ -38,7 +38,7 @@ function CommentCreateForm(props) {
         ],
       }));
       setContent("");
-      setAlert("Comment created!", "success");
+      setAlert("Comment created successfully!", "success");
     } catch (err) {
       // console.log(err);
       setAlert(err.message, "error");

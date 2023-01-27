@@ -8,6 +8,7 @@ const AlertPopup = () => {
     return (
       <Alert
         severity={type}
+        variant="filled"
         sx={{
           position: "absolute",
           zIndex: 1000,

@@ -80,11 +80,13 @@ function PostPage() {
               next={() => fetchMoreData(comments, setComments)}
             />
           ) : currentUser ? (
-            <span>No comments yet, be the first to comment!</span>
+            <span className={styles.NoComment}>
+              No comments yet, be the first to comment!
+            </span>
           ) : (
             <Tooltip title="Please login to comment!" placement="top" arrow>
               <Link to={"/signin"}>
-                <span>No comments... yet</span>
+                <span className={styles.NoComment}>No comments... yet</span>
               </Link>
             </Tooltip>
           )}

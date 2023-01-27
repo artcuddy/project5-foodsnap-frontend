@@ -44,7 +44,7 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
-      setAlert("Comment deleted!", "success");
+      setAlert("Comment deleted successfully!", "success");
     } catch (err) {
       setAlert(err.message, "error");
     }

@@ -40,7 +40,7 @@ function RecipeCreateForm(props) {
           },
         ],
       }));
-      setAlert("Recipe created!", "success");
+      setAlert("Recipe created successfully!", "success");
     } catch (err) {
       // console.log(err);
       setAlert(err.message, "error");

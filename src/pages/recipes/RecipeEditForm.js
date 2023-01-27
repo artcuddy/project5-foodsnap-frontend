@@ -43,7 +43,7 @@ function RecipeEditForm(props) {
         }),
       }));
       setShowEditForm(false);
-      setAlert("Recipe edited!", "success");
+      setAlert("Recipe edited successfully!", "success");
     } catch (err) {
       // console.log(err);
       setAlert(err.message, "error");
