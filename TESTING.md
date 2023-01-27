@@ -303,6 +303,8 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 <h2 id="lighthouse-desktop">Desktop</h2>
 
+-   Performance could be improved on by adding lazy loading to the images and implementing a CDN with caching.
+
 ![Desktop results](documentation/testing/lighthouse-desktop.webp)
 
 <h2 id="lighthouse-mobile">Mobile</h2>
