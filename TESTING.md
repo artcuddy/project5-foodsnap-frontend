@@ -198,21 +198,21 @@ test("renders notfound message", async () => {
 
 ![Sign Up](documentation/testing/signup.webp)
 
--   Logged in success alert with username top left of the screen.
+-   Logged in success alert with username top of the screen.
 
 ![Logged In](documentation/messaging/loggedin-success.webp)
 
--   Logged out success alert top left of the screen.
+-   Logged out success alert top of the screen.
 
 ![Logged Out](documentation/messaging/loggedout-success.webp)
 
 <h2>foodSNAPS</h2>
 
--   foodSNAP created success alert top left of the screen.
+-   foodSNAP created success alert top of the screen.
 
 ![Created](documentation/messaging/created-success.webp)
 
--   foodSNAP edited success alert top left of the screen.
+-   foodSNAP edited success alert top of the screen.
 
 ![Edited](documentation/messaging/edited-success.webp)
 
@@ -220,17 +220,17 @@ test("renders notfound message", async () => {
 
 ![Deleted](documentation/messaging/post-delete-confirm.webp)
 
--   Once the action is confirmed foodSNAP deleted success alert top left of the screen and foodSNAP is deleted.
+-   Once the action is confirmed foodSNAP deleted success alert top of the screen and foodSNAP is deleted.
 
 ![Deleted](documentation/messaging/deleted-success.webp)
 
 <h2>Comments</h2>
 
--   Comment created success alert top left of the screen.
+-   Comment created success alert top of the screen.
 
 ![Created](documentation/messaging/comment-created.webp)
 
--   Comment edited success alert top left of the screen.
+-   Comment edited success alert top of the screen.
 
 ![Edited](documentation/messaging/comment-edited.webp)
 
@@ -238,17 +238,17 @@ test("renders notfound message", async () => {
 
 ![Deleted](documentation/messaging/post-delete-confirm.webp)
 
--   Once the action is confirmed comment deleted success alert top left of the screen and comment is deleted.
+-   Once the action is confirmed comment deleted success alert top of the screen and comment is deleted.
 
 ![Deleted](documentation/messaging/comment-deleted.webp)
 
 <h2>Likes</h2>
 
--   foodSNAP liked success alert top left of the screen.
+-   foodSNAP liked success alert top of the screen.
 
 ![Created](documentation/messaging/liked.webp)
 
--   foodSNAP unliked success alert top left of the screen.
+-   foodSNAP unliked success alert top of the screen.
 
 ![Created](documentation/messaging/unliked.webp)
 
