@@ -14,3 +14,9 @@
 i {
     color:#000;
 }
+
+@media only screen and (min-width: 765px) and (max-width: 1179px) {
+    .NavLink {
+        padding: 2px;
+    }
+}
