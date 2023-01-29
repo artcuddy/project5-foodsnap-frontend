@@ -266,6 +266,8 @@ Initial Wireframes
 
 -   When an authenticated user follows a foodSNAPPER this will be added to their feed page which can be accessed by clicking on the feed icon on the navbar.
 
+-   A title is shown "foodSNAPPERS You Follow" under the search bar to display to the user that you are on the feed page.
+
 -   If the user has not followed anyone a message will appear to follow a user.
 
 <img src="documentation/screenshots/feedresults.webp">
@@ -275,6 +277,8 @@ Initial Wireframes
 <a href="#top">Back to the top.</a>
 
 -   When an authenticated user likes a foodSNAP this will be added to their liked foodSNAPS page which can be accessed by clicking on the heart liked icon on the navbar.
+
+-   A title is shown "foodSNAPS You Liked" under the search bar to display to the user that you are on the liked page.
 
 -   If the user has not liked any foodSNAPS a message will appear to like a foodSNAP first.
 
@@ -432,17 +436,19 @@ Custom components were created to enable the code and functionality to re-used t
 
 -   [NotFound.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/NotFound.js) was created to display a message to the user if the content they are looking for does not exist.
 
--   [MoreDropdown.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/MoreDropdown.js) was created to display a dropdown menu to display the options to edit or delete the content.
+-   [MoreDropdown.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/MoreDropdown.js) was created to display a message to the user if the content they are looking for does not exist.
+
+-   [FollowedFoodSnappers.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/FollowedFoodSnappers.js) was created to display a message "foodSNAPPERS You Follow" at the top of the feed page based on on the URL being /feed.
+
+-   [LikedFoodSnaps.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/LikedFoodSnaps.js) was created to display a message "foodSNAPS You Liked" at the top of the liked page based on the URL being /liked.
+
+<h2 id="custom-hooks">Custom Hooks</h2>
 
 -   [useAlert.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/hooks/useAlert.js) hook was created to call the alert messaging in the app
 
 -   [useRedirect.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/hooks/useRedirect.js) was created to redirect the user to the homepage based on their userAuthStatus
 
 -   [useClickOutsideToggle.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/hooks/useClickOutsideToggle.js) was created close the expanded menu on a click outside the menu at every stage in the app
-
--   [FollowedFoodSnappers.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/FollowedFoodSnappers.js) was created to display a message "foodSNAPPERS You Follow" at the top of the feed page based on on the URL being /feed.
-
--   [LikedFoodSnaps.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/LikedFoodSnaps.js) was created to display a message "foodSNAPS You Liked" at the top of the liked page based on the URL being /liked.
 
 <h2 id="custom-contexts">Custom Context</h2>
 
