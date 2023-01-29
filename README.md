@@ -40,6 +40,7 @@ Follow other users & find great recipes to try out that they have uploaded to fo
 -   [Testing](TESTING.md)
     -   [Automated Jest Testing Results](#testing-results)
     -   [Manual Testing Results](#testing-results)
+    -   [Bugs](TESTING.md#bugs)
 -   [Deployment](#deployment)
 -   [Credits](#credits)
 
