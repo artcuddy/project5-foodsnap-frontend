@@ -53,7 +53,7 @@ const Post = (props) => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
       history.push("/");
-      setAlert("foodSnap deleted successfully!", "success");
+      setAlert("foodSNAP deleted successfully!", "success");
     } catch (err) {
       setAlert(err.message, "error");
     }
