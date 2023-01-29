@@ -32,11 +32,12 @@ Follow other users & find great recipes to try out that they have uploaded to fo
     -   [Languages](#languages)
     -   [React Packages](#react-packages)
     -   [Frameworks & Libraries](#frameworks)
--   [Development & Testing](#testing)
+-   [Development](#development)
     -   [Custom Components](#custom-components)
     -   [Custom Hooks](#custom-hooks)
     -   [Contexts](#custom-contexts)
     -   [React Component Diagram](#component-diagram)
+-   [Testing](TESTING.md)
     -   [Automated Jest Testing Results](#testing-results)
     -   [Manual Testing Results](#testing-results)
 -   [Deployment](#deployment)
@@ -394,7 +395,7 @@ Throughout the planning, design, testing and deployment of the foodSNAP app, I h
 -   [Tables Generator](https://tablesgenerator.com/)<br>
     To build the tables in the readme.md file
 
-<h1 id="testing">Development & Testing</h1>
+<h1 id="development">Development</h1>
 
 <a href="#top">Back to the top.</a>
 
@@ -445,6 +446,10 @@ Custom components were created to enable the code and functionality to re-used t
 -   [CurrentUserContext.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/contexts/CurrentUserContext.js) was created to get the current users authentication state and redirect the user to the signin page if not signed in.
 
 -   [ProfileDataContext.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/contexts/ProfileDataContext.js) was created to setProfileData, handleFollow, handleUnfollow of user profiles and access this data throughout the app.
+
+<h1 id="development">Testing</h1>
+
+<a href="#top">Back to the top.</a>
 
 <h2 id="testing-results">Automated Testing Results</h2>
 
