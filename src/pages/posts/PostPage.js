@@ -15,8 +15,8 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
-import PopularProfiles from "../profiles/PopularProfiles";
-import PopularPosts from "./PopularPosts";
+import PopularProfiles from "../../components/profiles/PopularProfiles";
+import PopularPosts from "../../components/posts/PopularPosts";
 import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
 

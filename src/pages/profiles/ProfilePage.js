@@ -10,7 +10,7 @@ import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import PopularProfiles from "./PopularProfiles";
+import PopularProfiles from "../../components/profiles/PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -25,7 +25,7 @@ import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.webp";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import Fab from "@mui/material/Fab";
-import PopularPosts from "../posts/PopularPosts";
+import PopularPosts from "../../components/posts/PopularPosts";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);

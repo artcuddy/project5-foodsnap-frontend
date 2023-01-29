@@ -48,7 +48,7 @@ const UsernameForm = () => {
         username,
       }));
       history.goBack();
-      setAlert("Username updated!", "success");
+      setAlert("Username updated successfully!", "success");
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);

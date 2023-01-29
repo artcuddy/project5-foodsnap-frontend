@@ -16,9 +16,9 @@ import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.webp";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-import PopularProfiles from "../profiles/PopularProfiles";
+import PopularProfiles from "../../components/profiles/PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import PopularPosts from "./PopularPosts";
+import PopularPosts from "../../components/posts/PopularPosts";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });

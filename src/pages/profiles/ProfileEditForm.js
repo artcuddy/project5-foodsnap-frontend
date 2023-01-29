@@ -79,7 +79,7 @@ const ProfileEditForm = () => {
         profile_image: data.image,
       }));
       history.goBack();
-      setAlert("Profile updated!", "success");
+      setAlert("Profile updated successfully!", "success");
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
