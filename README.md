@@ -440,6 +440,10 @@ Custom components were created to enable the code and functionality to re-used t
 
 -   [useClickOutsideToggle.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/hooks/useClickOutsideToggle.js) was created close the expanded menu on a click outside the menu at every stage in the app
 
+-   [FollowedFoodSnappers.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/FollowedFoodSnappers.js) was created to display a message "foodSNAPPERS You Follow" at the top of the feed page based on on the URL being /feed.
+
+-   [LikedFoodSnaps.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/LikedFoodSnaps.js) was created to display a message "foodSNAPS You Liked" at the top of the liked page based on the URL being /liked.
+
 <h2 id="custom-contexts">Custom Context</h2>
 
 -   [AlertContext.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/contexts/AlertContext.js) was created to allow the alert functionality to be used at every stage in the app
