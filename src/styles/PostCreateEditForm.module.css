@@ -1,5 +1,6 @@
 .Container {
     min-height: 343px;
+    margin-bottom: 64px;
 }
 
 .FormTitle {
