@@ -440,7 +440,7 @@ Custom components were created to enable the code and functionality to re-used t
 
 -   [FollowedFoodSnappers.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/FollowedFoodSnappers.js) was created to display a message "foodSNAPPERS You Follow" at the top of the feed page based on on the URL being /feed.
 
--   [LikedFoodSnaps.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/LikedFoodSnaps.js) was created to display a message "foodSNAPS You Liked" at the top of the liked page based on the URL being /liked.
+-   [FoodSnapMessage.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/MyFoodSnaps.js) was created to display a message with message props to change the data at the top of the profile and liked page.
 
 <h2 id="custom-hooks">Custom Hooks</h2>
 

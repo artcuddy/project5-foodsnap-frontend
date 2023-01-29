@@ -1,9 +1,11 @@
 import React from "react";
-import styles from "../styles/MyFoodSnaps.module.css";
+import styles from "../styles/FoodSnapMessage.module.css";
 
 import foodSnaps from "../assets/foodsnaps.webp";
 
-const MyFoodSnaps = () => {
+const FoodSnapMessage = (props) => {
+  const { message } = props;
+
   return (
     <p className={styles.Title}>
       <img
@@ -12,9 +14,9 @@ const MyFoodSnaps = () => {
         alt="Popular foodSNAPS"
         height="20"
       />
-      You Created
+      {message}
     </p>
   );
 };
 
-export default MyFoodSnaps;
+export default FoodSnapMessage;

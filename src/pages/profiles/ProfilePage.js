@@ -26,7 +26,7 @@ import NoResults from "../../assets/no-results.webp";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import Fab from "@mui/material/Fab";
 import PopularPosts from "../../components/posts/PopularPosts";
-import MyFoodSnaps from "../../components/MyFoodSnaps";
+import FoodSnapMessage from "../../components/FoodSnapMessage";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -138,7 +138,7 @@ function ProfilePage() {
 
   const mainProfilePosts = (
     <>
-      <MyFoodSnaps />
+      <FoodSnapMessage message="You Created" />
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (

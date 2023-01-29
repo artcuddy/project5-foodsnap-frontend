@@ -19,7 +19,7 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../../components/profiles/PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import PopularPosts from "../../components/posts/PopularPosts";
-import LikedFoodSnaps from "../../components/LikedFoodSnaps";
+import FoodSnapMessage from "../../components/FoodSnapMessage";
 import FollowedFoodSnappers from "../../components/FollowedFoodSnappers";
 
 function PostsPage({ message, filter = "" }) {
@@ -81,7 +81,7 @@ function PostsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {location.pathname === "/liked" ? (
-              <LikedFoodSnaps />
+              <FoodSnapMessage message="You Liked" />
             ) : location.pathname === "/feed" ? (
               <FollowedFoodSnappers />
             ) : (
