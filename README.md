@@ -432,7 +432,7 @@ Custom components were created to enable the code and functionality to re-used t
 
 -   [NotFound.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/NotFound.js) was created to display a message to the user if the content they are looking for does not exist.
 
-<h2 id="custom-hooks">Custom Hooks</h2>
+-   [MoreDropdown.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/MoreDropdown.js) was created to display a dropdown menu to display the options to edit or delete the content.
 
 -   [useAlert.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/hooks/useAlert.js) hook was created to call the alert messaging in the app
 

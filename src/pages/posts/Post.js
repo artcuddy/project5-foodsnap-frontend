@@ -217,7 +217,11 @@ const Post = (props) => {
                 className={styles.Recipes}
                 onClick={() => setRecipeOpen(!recipeOpen)}
               >
-                <AddCircleOutlineOutlinedIcon />
+                {!recipeOpen ? (
+                  <AddCircleOutlineOutlinedIcon />
+                ) : (
+                  <CloseOutlinedIcon />
+                )}
                 Add Recipe
               </div>
             </Tooltip>
