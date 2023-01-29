@@ -19,6 +19,8 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../../components/profiles/PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import PopularPosts from "../../components/posts/PopularPosts";
+import LikedFoodSnaps from "../../components/LikedFoodSnaps";
+import FollowedFoodSnappers from "../../components/FollowedFoodSnappers";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -78,6 +80,13 @@ function PostsPage({ message, filter = "" }) {
 
         {hasLoaded ? (
           <>
+            {location.pathname === "/liked" ? (
+              <LikedFoodSnaps />
+            ) : location.pathname === "/feed" ? (
+              <FollowedFoodSnappers />
+            ) : (
+              " "
+            )}
             {posts.results.length ? (
               <InfiniteScroll
                 // eslint-disable-next-line react/no-children-prop

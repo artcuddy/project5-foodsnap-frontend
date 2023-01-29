@@ -48,10 +48,12 @@ function App() {
             exact
             path="/liked"
             render={() => (
-              <PostsPage
-                message="No results found. Please like a foodSNAP to add to your liked page!"
-                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
-              />
+              <>
+                <PostsPage
+                  message="No results found. Please like a foodSNAP to add to your liked page!"
+                  filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                />
+              </>
             )}
           />
           <Route exact path="/signin" render={() => <SignInForm />} />
