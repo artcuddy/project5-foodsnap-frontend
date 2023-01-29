@@ -2,8 +2,6 @@
 
 Back to the [README](README.md)
 
-The backend API testing repository can be found <a href="https://github.com/artcuddy/project5-foodsnap-backend/blob/main/TESTING.md" target="_blank">**HERE**</a><br>
-
 <h1 id="contents">Contents</h1>
 
 -   [Introduction](#introduction)
