@@ -10,6 +10,10 @@
     color: #474747;
 }
 
+.ProfileName {
+    font-size: 2em;;
+}
+
 .ProfileContent {
     font-size: 1.2em;
     padding-bottom: 32px;
@@ -24,7 +28,6 @@
 .CountText {
     color: #474747;
 }
-
 
 @media screen and (max-width: 991px) {
     .ProfileImage {

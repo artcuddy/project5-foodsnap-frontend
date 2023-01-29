@@ -138,7 +138,7 @@ function ProfilePage() {
 
   const mainProfilePosts = (
     <>
-      <FoodSnapMessage message="You Created" />
+      <FoodSnapMessage message={`${profile?.owner} Created`} />
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
