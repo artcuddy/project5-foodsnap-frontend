@@ -7,8 +7,8 @@ The backend API testing repository can be found <a href="https://github.com/artc
 <h1 id="contents">Contents</h1>
 
 -   [Introduction](#introduction)
--   [Manual Testing](#manual-testing)
--   [Automated Testing](#automated-testing)
+-   [Manual Functional Testing](#manual-testing)
+-   [Automated Jest Testing](#automated-testing)
 -   [Messaging / Alerts](#messaging)
 -   [ESlint Validator](#eslint-validation)
 -   [HTML Validator](#html-validation)
@@ -54,7 +54,7 @@ afterAll(() => server.close());
 
 Created 7 tests utilising the Jest testing suite
 
-3 NavBar tests to see if the correct navigation links are shown to a logged in user versus a logged out user in the header.
+-   [NavBar.test.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/__tests__/NavBar.test.js) 3 NavBar tests to see if the correct navigation links are shown to a logged in user versus a logged out user in the header.
 
 ```
 test("renders NavBar", () => {
@@ -102,7 +102,7 @@ test("renders Sign in and Sign up buttons again on log out", async () => {
 });
 ```
 
-3 FooterNavBar tests to see if the correct navigation links are shown to a logged in user versus a logged out user in the footer.
+-   [FooterNavBar.test.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/__tests__/FooterNavBar.test.js) 3 FooterNavBar tests to see if the correct navigation links are shown to a logged in user versus a logged out user in the footer.
 
 ```
 test("renders NavBar", () => {
@@ -157,7 +157,7 @@ test("renders Home icon link on log out", async () => {
 });
 ```
 
-1 NotFound test to see if the not found message is shown when no results can be found
+-   [NotFound.test.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/__tests__/NotFound.test.js) 1 NotFound test to see if the not found message is shown when no results can be found.
 
 ```
 import { render, screen, waitFor } from "@testing-library/react";

@@ -37,7 +37,8 @@ Follow other users & find great recipes to try out that they have uploaded to fo
     -   [Custom Hooks](#custom-hooks)
     -   [Contexts](#custom-contexts)
     -   [React Component Diagram](#component-diagram)
-    -   [Testing Results Automated & Manual](TESTING.md)
+    -   [Automated Jest Testing Results](#testing-results)
+    -   [Manual Testing Results](#testing-results)
 -   [Deployment](#deployment)
 -   [Credits](#credits)
 
@@ -405,287 +406,59 @@ Throughout the planning, design, testing and deployment of the foodSNAP app, I h
 
 <a href="#top">Back to the top.</a>
 
+Custom components were created to enable the code and functionality to re-used throughout the foodSNAP app
+
+-   [PopularPosts.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/posts/PopularPosts.js) was created to display the 4 most liked posts in decending order by amount of likes and equal or more than 2 likes.
+
+-   [PopularProfiles.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/profiles/PopularProfiles.js) was created to display the 6 most followed foodSNAPPERS in decending order by amount of followers and equal or more than 1 follower.
+
 -   [ConfirmDialog.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/ConfirmDialog.js) was created to enable a popup modal to confirm the users action before content deletions.
-
-
-```
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-  Box,
-  IconButton,
-  Typography,
-} from "@mui/material/";
-import { Close } from "@mui/icons-material";
-import { create } from "zustand";
-
-const ConfirmDialog = () => {
-  const { message, onSubmit, close } = useConfirmDialogStore();
-  return (
-    <Dialog open={Boolean(onSubmit)} onClose={close} maxWidth="sm" fullWidth>
-      <DialogTitle>Confirm the action</DialogTitle>
-      <Box position="absolute" top={0} right={0}>
-        <IconButton onClick={close}>
-          <Close />
-        </IconButton>
-      </Box>
-      <DialogContent>
-        <Typography>{message}</Typography>
-      </DialogContent>
-      <DialogActions>
-        <Button color="common" variant="contained" onClick={close}>
-          Cancel
-        </Button>
-        <Button
-          color="error"
-          variant="contained"
-          onClick={() => {
-            if (onSubmit) {
-              onSubmit();
-            }
-            close();
-          }}
-        >
-          Confirm
-        </Button>
-      </DialogActions>
-    </Dialog>
-  );
-};
-
-export default ConfirmDialog;
-
-const useConfirmDialogStore = create((set) => ({
-  message: "",
-  onSubmit: undefined,
-  close: () => set({ onSubmit: undefined }),
-}));
-
-export const confirmDialog = (message, onSubmit) => {
-  useConfirmDialogStore.setState({
-    message,
-    onSubmit,
-  });
-};
-```
 
 -   [ScrollToTop.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/ScrollToTop.js) was created to scroll the user to the top of the page on navigation to a new page.
 
-```
-import { useEffect } from "react";
-import { useLocation, useHistory } from "react-router";
-
-const ScrollToTop = (props) => {
-  const location = useLocation();
-  const history = useHistory();
-  useEffect(() => {
-    return () => {
-      if (history.action !== "POP") {
-        window.scrollTo(0, 0);
-      }
-    };
-  }, [location, history.action]);
-
-  return <>{props.children}</>;
-};
-
-export default ScrollToTop;
-```
-
 -   [AlertPopUp.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/AlertPopup.js) was created to enable toast messaging on user success and error actions.
-
-```
-import { Alert } from "@mui/material";
-import useAlert from "../hooks/useAlert";
-
-const AlertPopup = () => {
-  const { text, type } = useAlert();
-
-  if (text && type) {
-    return (
-      <Alert
-        severity={type}
-        sx={{
-          position: "absolute",
-          zIndex: 1000,
-        }}
-      >
-        {text}
-      </Alert>
-    );
-  } else {
-    return <></>;
-  }
-};
-
-export default AlertPopup;
-```
 
 -   [FloatingActionButton.js ](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/FloatingActionButton.js) was created to enable the + icon in the NavBar to allow a user to add a new foodSNAP and display a tooltip on desktop hover.
 
-```
-import Box from "@mui/material/Box";
-import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
-import Tooltip from "@mui/material/Tooltip";
-
-export default function FloatingActionButton() {
-  return (
-    <Tooltip title="Click to add a new foodSNAP!" placement="bottom" arrow>
-      <Box sx={{ "& > :not(style)": { m: 1 } }}>
-        <Fab size="small" color="black" aria-label="add">
-          <AddIcon />
-        </Fab>
-      </Box>
-    </Tooltip>
-  );
-}
-```
-
 -   [FooterNavBar.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/FooterNavBar.js) was created to display a sticky footer on mobile with different icons depending on if the user is logged in or not.
 
-```
-import { NavLink } from "react-router-dom";
-import Paper from "@mui/material/Paper";
-import styles from "../styles/FooterNavBar.module.css";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import SortOutlinedIcon from "@mui/icons-material/SortOutlined";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+-   [NavBar.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/NavBar.js) was created to display the navigation menu and display different icons depending on if the user is logged in or not.
 
-const FooterNavBar = () => {
-  const currentUser = useCurrentUser();
+-   [Asset.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/Asset.js) was created to display a spinner when data is being fetched to notify the user that an action is being performed.
 
-  const loggedOutBar = (
-    <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/">
-      <HomeOutlinedIcon /> Home
-    </NavLink>
-  );
+-   [Avatar.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/Avatar.js) was created to display the users profile image throughout the app.
 
-  const loggedInBar = (
-    <>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/"
-        aria-label="Click to view home page"
-      >
-        <HomeOutlinedIcon /> Home
-      </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/feed"
-        aria-label="Click to view feed page"
-      >
-        <SortOutlinedIcon /> Feed
-      </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/liked"
-        aria-label="Click to view liked page"
-      >
-        <FavoriteBorderOutlinedIcon /> Liked
-      </NavLink>
-    </>
-  );
-
-  return (
-    <Paper
-      className={styles.FooterBar}
-      sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
-      elevation={3}
-    >
-      {currentUser ? loggedInBar : loggedOutBar}
-    </Paper>
-  );
-};
-
-export default FooterNavBar;
-```
+-   [NotFound.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/components/NotFound.js) was created to display a message to the user if the content they are looking for does not exist.
 
 <h2 id="custom-hooks">Custom Hooks</h2>
 
-<a href="#top">Back to the top.</a>
+-   [useAlert.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/hooks/useAlert.js) hook was created to call the alert messaging in the app
 
--   [UseAlert.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/hooks/useAlert.js) hook was created to call the alert messaging in the app
+-   [useRedirect.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/hooks/useRedirect.js) was created to redirect the user to the homepage based on their userAuthStatus
 
-```
-import { useContext } from "react";
-import AlertContext from "../contexts/AlertContext";
-
-const useAlert = () => useContext(AlertContext);
-
-export default useAlert;
-```
+-   [useClickOutsideToggle.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/hooks/useClickOutsideToggle.js) was created close the expanded menu on a click outside the menu at every stage in the app
 
 <h2 id="custom-contexts">Custom Context</h2>
 
-<a href="#top">Back to the top.</a>
-
 -   [AlertContext.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/contexts/AlertContext.js) was created to allow the alert functionality to be used at every stage in the app
 
-```
-import { createContext, useState } from "react";
+-   [CurrentUserContext.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/contexts/CurrentUserContext.js) was created to get the current users authentication state and redirect the user to the signin page if not signed in.
 
-const ALERT_TIME = 3000;
-const initialState = {
-  text: "",
-  type: "",
-};
-
-const AlertContext = createContext({
-  ...initialState,
-  setAlert: () => {},
-});
-
-export const AlertProvider = ({ children }) => {
-  const [text, setText] = useState("");
-  const [type, setType] = useState("");
-
-  const setAlert = (text, type) => {
-    setText(text);
-    setType(type);
-
-    setTimeout(() => {
-      setText("");
-      setType("");
-    }, ALERT_TIME);
-  };
-
-  return (
-    <AlertContext.Provider
-      value={{
-        text,
-        type,
-        setAlert,
-      }}
-    >
-      {children}
-    </AlertContext.Provider>
-  );
-};
-
-export default AlertContext;
-```
+-   [ProfileDataContext.js](https://github.com/artcuddy/project5-foodsnap-frontend/blob/main/src/contexts/ProfileDataContext.js) was created to setProfileData, handleFollow, handleUnfollow of user profiles and access this data throughout the app.
 
 <h2 id="testing-results">Automated Testing Results</h2>
 
--   Automated Testing results [here](TESTING.md#automated-testing)
+-   Automated Jest Testing results [HERE](TESTING.md#automated-testing)
 
 <h2 id="testing-results">Manual Testing Results</h2>
 
--   Manual Testing results [here](TESTING.md#manual-testing)
+-   Manual Testing results [HERE](TESTING.md#manual-testing)
 
 <h1 id="deployment">Deployment</h1>
 
 <a href="#top">Back to the top.</a>
 
-### This project was created on GitHub and Edited in GitPod by carrying out the following:
+### This project was created on GitHub and edited in GitPod by carrying out the following:
 
 <ol>
     <li>A new repository was created without a template</li>
